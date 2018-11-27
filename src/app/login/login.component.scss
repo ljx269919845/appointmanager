@@ -1,0 +1,48 @@
+.login-form {
+  width: 480px;
+  height: auto;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  dt{
+    width: 80px;
+    text-align: right;
+  }
+  dt,dd{
+    display: inline-block;
+  }
+  dd {
+    margin-left: 10px;
+  }
+  .app-input-box {
+      margin-top: 25px;
+      margin-left: 20px;
+      margin-right: 20px;
+      ::ng-deep {
+          input {
+              width: 275px;
+              height: 28px;
+              &.mprGetFocus{
+                  border:1px solid #5bc0de;
+              }
+          }
+          .error{
+              p{
+                  height: 20px;
+                  line-height: 20px;
+                  width: 100px;
+                  float: none;
+              }
+              position: absolute;
+          }
+          .remeber{
+            margin-left: 94px;
+            button{
+              margin-left: 20px;
+              width: 167px;
+            }
+          }
+      }
+  }
+}

@@ -1,0 +1,3 @@
+.loading-box-position { position: fixed;left: 0;top:0;height: 100%;width: 100%; background:rgba(0,0,0,0.1); z-index:999;}
+.loading-box { background: url(/assets/images/pop-up-box/loading.gif) no-repeat center center;
+    width: 50px; height: 50px;position:fixed; top:50%; left: 50%; margin: -25px 0 0 -25px; }

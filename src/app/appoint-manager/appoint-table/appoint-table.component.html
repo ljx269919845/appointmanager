@@ -1,0 +1,23 @@
+<div>
+    <tl-data-table [noDataMsg]="'暂无配置信息'"  [dataTableObj]="dataTableObj">
+        <ng-template tl-template="index" let-index="index">
+            {{index + 1}}
+         </ng-template>
+        <ng-template tl-template="oper" let-rowData>
+          <ul>
+            <li>
+                <span class="dname">医生</span>
+                <span class="dnum">放号量</span>
+                <span class="dsurplus">剩余数量</span>
+                <span class="dstatus">医生状态</span>
+            </li>
+            <li *ngFor="let appoint of rowData.appointSets" >
+              <span class="dname">{{appoint.doctor.doctorName}}</span>
+              <span class="dnum">{{appoint.userNum}}</span>
+              <span class="dsurplus">{{appoint.surplusNum}}</span>
+              <span class="dstatus">{{appoint.doctor.status == 1? '出诊中': '休息中'}}</span>
+            </li>
+          </ul>
+        </ng-template>
+    </tl-data-table>
+  </div>

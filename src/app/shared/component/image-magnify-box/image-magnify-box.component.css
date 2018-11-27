@@ -1,0 +1,3 @@
+.image-magnify-box{ width:100%; height:100%; display: flex; position: fixed; justify-content: center; top:0; left:0; background: rgba(0,0,0,0.1); z-index: 99999;}
+.img-maginify{ position: fixed; top: 50%; left: 50%; text-align: center;}
+

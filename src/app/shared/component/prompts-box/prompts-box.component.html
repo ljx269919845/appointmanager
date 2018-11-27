@@ -1,0 +1,12 @@
+<!-- <div [class.prompts-box-position]="promptsBoxObj.positionFlag" *ngIf="ifPromptsBox" [style.display]="promptsBoxObj.visible?'flex':'none'"
+     [@dialogState]="promptsBoxObj._showAnimations ? 'visible' : 'hidden'">
+  <div class="prompts-box" [ngClass]="{'prompts-box-error':promptsBoxObj.error}" [ngStyle]="promptsBoxStyles">
+    <span class="prompts-box-name">{{promptsBoxObj?.name}}</span>
+  </div>
+</div> -->
+<div [style.display]="(promptsBoxObj.visible)?'block':'none'" class='success-box-wrap'>
+  <p class='success-box-title'>
+    {{promptsBoxObj?.name}}
+  </p>
+</div>
+

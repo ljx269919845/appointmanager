@@ -1,0 +1,1 @@
+export { OperatingButtonComponent } from './operating-button.component';

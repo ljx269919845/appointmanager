@@ -1,0 +1,2 @@
+:host ::ng-deep .error p{ width: auto; padding-left: 10px;}
+:host ::ng-deep .error {position: absolute; margin-top: 8px;}

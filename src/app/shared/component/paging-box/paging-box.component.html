@@ -1,0 +1,2 @@
+<tl-paging-box-children *ngIf="pagingBoxObj && pagingBoxObj.totalRecords" [page]="pagingBoxObj.page" [totalRecords]="pagingBoxObj.totalRecords" [rows]="pagingBoxObj.rows"
+    [first]="pagingBoxObj.first" [pageLinkSize]="pagingBoxObj.pageLinkSize" (onPageChange)="pageChange($event)"></tl-paging-box-children>

@@ -1,0 +1,24 @@
+/* .prompts-box-position{ width:100%; height:100%; position: fixed; background: rgba(0,0,0,0.5); z-index:999; }
+.prompts-box { background: #3D3D3D url(/assets/images/prompts-box/success.png) no-repeat center 13px;
+  width: 140px; height: 90px; position: fixed; top: 35%; left: 50%; margin: -45px 0 0 -70px;z-index: 99999; }
+.prompts-box-error { background: #3D3D3D url(/assets/images/prompts-box/error.png) no-repeat center 13px; }
+.prompts-box-name { font-size: 16px; border-radius: 3px; display: inline-block; color: #fff; text-align: center; margin-top: 52px; width: 100%; } */
+.success-box-title {
+  min-width: 120px;
+  height: 50px;
+  line-height: 50px;
+  color: #ffffff;
+  font-size: 16px;
+  background: #41A6B2;
+  border-radius:3px;
+  display: inline-block;    
+  padding: 6px 10px;
+  box-shadow: 0px 0px 10px 2px #41A6B2;
+}
+.success-box-wrap {
+  position: fixed; 
+  top: 270px;
+  left: 0;
+  text-align: center;
+  width: 100%;
+}

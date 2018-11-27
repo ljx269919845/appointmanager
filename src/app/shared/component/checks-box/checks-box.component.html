@@ -1,0 +1,4 @@
+<div>
+  <tl-check-box *ngFor="let obj of checksData" [width]="width" [name]="name" [labelName]="obj.userName" [disabled]="obj.disabled"
+                [(ngModel)]="obj.selected" (onSelectedFn)="selectedFn($event)"></tl-check-box>
+</div>

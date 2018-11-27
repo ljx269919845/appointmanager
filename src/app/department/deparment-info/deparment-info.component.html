@@ -1,0 +1,26 @@
+<p-dialog header="科室" [visible]="true" [width]="550" [closable]="false" [modal]="true" [resizable]="false" [minHeight]="500">
+    <div ngForm class="p-grid body" [isliFormValidMsg]="errMsg">
+      <dl class="p-col p-col-12">
+        <dt class="inline-block">科室名称:</dt>
+        <dd class="inline-block">
+          <input type="text" name="departName" [(ngModel)]="departMent.departName" required maxlength="5">
+          <mpr-form-control-valid controlName="departName"></mpr-form-control-valid>
+        </dd>
+      </dl>
+      <dl class="p-col p-col-12">
+        <dt class="inline-block" style="vertical-align: top">科室简介:</dt>
+        <dd class="inline-block">
+            <textarea name="departRemart"  [rows]="5" pInputTextarea [(ngModel)]="departMent.departRemark"></textarea>
+        </dd>
+      </dl>
+      <div class="p-col p-col-12" style="margin-top: -30px">
+        <dl>
+          <dt  class="inline-block"></dt>
+          <dd  class="inline-block">
+              <button type="button" pButton label="提交" (click)="handleSubmit()"></button>
+              <button type="button" pButton label="取消" (click)="handleCancel()"></button>
+          </dd>
+        </dl>
+        </div>
+    </div>
+  </p-dialog>

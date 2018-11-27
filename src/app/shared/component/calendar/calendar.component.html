@@ -1,0 +1,20 @@
+
+<p-calendar [ngModel]="value" (ngModelChange)="changValue($event)"
+        [defaultDate]="calendarObj.defaultDate"
+        [placeholder]="calendarObj.placeholder"
+        [disabled]="calendarObj.disabled"
+        [dateFormat]="calendarObj.dateFormat"
+        [minDate]="calendarObj.minDate"
+        [maxDate]="calendarObj.maxDate"
+        [showTime]="calendarObj.showTime"
+        [showSeconds]="calendarObj.showSeconds"
+        [locale]="calendarData"
+        [yearRange]="'1970:' + currentYear"
+        [showOtherMonths]="calendarObj.showOtherMonths"
+        [monthNavigator]="calendarObj.monthNavigator"
+        [yearNavigator]="calendarObj.yearNavigator"
+        [readonlyInput]="calendarObj.readonly"
+        [style]="calendarObj.style"
+        [inputStyle]="calendarObj.inputStyle"
+        (onBlur)="onInputBlur($event)">
+</p-calendar>

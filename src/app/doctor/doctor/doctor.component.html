@@ -1,0 +1,12 @@
+<div>
+    <div class="hd-opt">
+      <button pButton type="button" label="新建" (click)="handleCreateClick()"></button>
+    </div>
+    <app-doctor-table [dataValue]="doctors" [departMent]="departMents" (OnActive)="handleActiveDoctor($event)"
+     (OnFrezee)="handleFrezeeDoctor($event)" (OnShowDetail)="handleShowDetailDoctor($event)"></app-doctor-table>
+    <app-doctor-form *ngIf="showInfo" [doctorModify]="doctor"
+      [departMent]="createDepartMents"
+     (OnCancel)="handleCancel()"
+     (OnCreate)="handleDoctorCreate($event)"
+     (OnUpdate)="handleDoctorUpdate($event)"></app-doctor-form>
+   </div>

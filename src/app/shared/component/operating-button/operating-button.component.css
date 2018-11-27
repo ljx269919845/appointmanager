@@ -1,0 +1,40 @@
+a{ width:22px;height:22px;display: inline-block; margin-right: 5px; vertical-align: middle; cursor: pointer;}
+.disabled{ cursor: not-allowed }
+
+.opraDelete{ background:url(/assets/images/operating-button/opraDelete.png) no-repeat 0 center; }
+.opraDelete:hover{ background:url(/assets/images/operating-button/opraDelete.png) no-repeat -22px center; }
+.opraDelete:active{ background:url(/assets/images/operating-button/opraDelete.png) no-repeat -44px center; }
+
+.opraDetail{ background:url(/assets/images/operating-button/opraDetail.png) no-repeat 0 center; }
+.opraDetail:hover{ background:url(/assets/images/operating-button/opraDetail.png) no-repeat -22px center; }
+.opraDetail:active{ background:url(/assets/images/operating-button/opraDetail.png) no-repeat -44px center; }
+
+.opraEdit{ background:url(/assets/images/operating-button/opraEdit.png) no-repeat 0 center; }
+.opraEdit:hover{ background:url(/assets/images/operating-button/opraEdit.png) no-repeat -22px center; }
+.opraEdit:active{ background:url(/assets/images/operating-button/opraEdit.png) no-repeat -44px center; }
+.opraEdit.disabled{ background:url(/assets/images/operating-button/opraEdit.png) no-repeat -66px center; }
+
+.opraOut{ background:url(/assets/images/operating-button/opraOut.png) no-repeat; background-position: 0 0;}
+.opraOut:hover{ background:url(/assets/images/operating-button/opraOut.png) no-repeat -22px center; }
+.opraOut:active{ background:url(/assets/images/operating-button/opraOut.png) no-repeat -44px center; }
+.opraOut.disabled{ background:url(/assets/images/operating-button/opraOut.png) no-repeat -66px center; }
+
+.opraput{ background:url(/assets/images/operating-button/putBg.png) no-repeat  0 center;}
+.opraput:hover{ background:url(/assets/images/operating-button/putBg.png) no-repeat -22px center; }
+.opraput:active{ background:url(/assets/images/operating-button/putBg.png) no-repeat -44px center; }
+.opraput.disabled{ background:url(/assets/images/operating-button/putBg.png) no-repeat -66px center; }
+
+.opraExport{ background:url(/assets/images/operating-button/export.png) no-repeat  0 center;}
+.opraExport:hover{ background:url(/assets/images/operating-button/export.png) no-repeat -22px center; }
+.opraExport:active{ background:url(/assets/images/operating-button/export.png) no-repeat -44px center; }
+.opraExport.disabled{ background:url(/assets/images/operating-button/export.png) no-repeat -66px center; }
+
+.opraSettle{ background:url(/assets/images/operating-button/settlement.png) no-repeat  0 center;}
+.opraSettle:hover{ background:url(/assets/images/operating-button/settlement.png) no-repeat -22px center; }
+.opraSettle:active{ background:url(/assets/images/operating-button/settlement.png) no-repeat -44px center; } 
+
+.opraSettleProof{ background:url(/assets/images/operating-button/settlementProof.png) no-repeat  0 center;}
+.opraSettleProof:hover{ background:url(/assets/images/operating-button/settlementProof.png) no-repeat -22px center; }
+.opraSettleProof:active{ background:url(/assets/images/operating-button/settlementProof.png) no-repeat -44px center; } 
+
+

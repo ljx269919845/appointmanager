@@ -1,0 +1,126 @@
+/* dialog弹框样式 */
+
+::ng-deep {
+  .ui-widget-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .ui-widget-overlay {
+    background: #666666;
+    opacity: .50;
+    filter: Alpha(Opacity=50);
+  }
+}
+
+.tl-dialog {
+  position: fixed;
+  top: 30%;
+  left: 34%;
+  z-index: 10001;
+  opacity: 1;
+  background: rgba(0, 0, 0, .2);
+  ::ng-deep {
+    .ui-dialog-mask {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+    }
+    .ui-widget-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .ui-widget-overlay {
+      background: #000;
+      opacity: .50;
+      filter: Alpha(Opacity=50);
+    }
+    .ui-dialog {
+      border: none;
+      position: fixed;
+      padding: 0;
+      overflow: hidden;
+    }
+    .ui-dialog .ui-widget-header {
+      background: #e4e4e4;
+      padding: 12px;
+    }
+    span.fa.fa-fw.fa-close {
+      float: right;
+      padding: .125em;
+      cursor: pointer;
+      border: 1px solid transparent;
+      background: url("/assets/images/close_v2.png") no-repeat 0 0;
+      height: 15px;
+      width: 15px;
+    }
+    .tl-dialog-footer {
+      width: 100%;
+      left: 0;
+      bottom: 25px;
+      background: #ffffff;
+      padding: 0;
+      text-align: center;
+      position: absolute;
+    }
+    .ui-dialog-content.ui-widget-content {
+      border: none;
+    }
+  }
+}
+
+:host.confirm-cancel-dialog ::ng-deep {
+  /* 确认--取消--弹出框 */
+  .ui-dialog .ui-widget-header {
+    height: 110px;
+    line-height: 110px;
+    padding: 0;
+    background: #41A5B1;
+    text-align: center;
+  }
+  div.ui-widget-header>span.ui-dialog-title {
+    display: inline-block;
+    color: #ffffff;
+    font-weight: 400;
+  }
+  div.ui-widget-header>span.ui-dialog-title:before {
+    content: '';
+    display: inline-block;
+    width: 42px;
+    height: 36px;
+    background: url(/assets/images/dialog_tip.png) center center no-repeat;
+    -webkit-background-size: 42px 36px;
+    background-size: 42px 36px;
+    position: relative;
+    top: 12px
+  }
+  .ui-dialog a.ui-dialog-titlebar-close {
+    display: none;
+  }
+  button.btn1 {
+    background: #F6F6F6;
+    border: 1px solid #AEAEAE;
+    color: #727272;
+  }
+  button.btn1:hover {
+    background: #EDEDED;
+  }
+  button.btn2 {
+    background: #EEF8F9;
+    border: 1px solid #6DC3CD;
+    color: #41A6B2;
+  }
+  button.btn2:hover {
+    background: #E4F5F7;
+  }
+  .tl-dialog-yes+.tl-dialog-no {
+    margin-left: 35px;
+  }
+}
+
+/* end Dialog弹框样式 */

@@ -1,0 +1,19 @@
+<div *ngIf="ifConfirmCancelBox" class="confirm-cancel-box-position" [style.display]="confirmCancelBoxObj.visible?'flex':'none'">
+    <div class="confirm-cancel-box">
+      <div class="confirm-cancel-box-header">
+        <p class="confirm-cancel-box-header-name " [ngClass]="{'single-span': headerArr.length>1}"><span *ngFor="let header of headerArr">{{header}}</span></p>
+        <a *ngIf="confirmCancelBoxObj.headerClose" href="javascript:void(0);" (click)="clickNo()">
+          <span class="confirm-cancel-box-header-close">×</span>
+        </a>
+      </div>
+      <div class="confirm-cancel-box-footer">
+        <a *ngIf="confirmCancelBoxObj.btnYes" class="btn btn-sure" href="javascript:void(0)" (click)="clickYes()">
+          {{confirmCancelBoxObj?.btnYes}}
+        </a>
+        <a *ngIf="confirmCancelBoxObj.btnNo" class="btn btn-cancel" href="javascript:void(0)" (click)="clickNo()">
+          {{confirmCancelBoxObj?.btnNo}}
+        </a>
+      </div>
+    </div>
+  </div>
+  

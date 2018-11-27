@@ -1,0 +1,32 @@
+<p-dataTable [value]="dataTableObj.value" [class.dataTable-noValue]="!dataTableObj.value||!dataTableObj.value.length" [sortField]="dataTableObj.sortField"
+  [sortOrder]="dataTableObj.sortOrder" [rowGroupMode]="dataTableObj?.rowGroupObj?.mode" [groupField]="dataTableObj?.rowGroupObj?.field"
+  [sortableRowGroup]="dataTableObj?.rowGroupObj?.sortable" [resizableColumns]="true" [selection]="selection" (selectionChange)="selection=$event;selectionChange.emit($event);"
+  [rowStyleClass]="lookupRowStyleClass" (onSort)="onSort.emit($event)">
+  <p-column *ngIf="dataTableObj.selectionObj" [style]="dataTableObj.selectionObj.style" [styleClass]="dataTableObj.selectionObj.styleClass"
+    [selectionMode]="dataTableObj.selectionObj.mode"></p-column>
+  <ng-template *ngIf="dataTableObj.rowGroupObj" pTemplate="rowgroupheader" let-rowData>
+    <tl-templateLoader [template]="templates.toArray() | tlTemplate:dataTableObj.rowGroupObj.template" [data]="rowData"></tl-templateLoader>
+  </ng-template>
+  <p-column *ngFor="let co of dataTableObj.columnObjs" [field]="co.field" [header]="co.header" [style]="co.style" [styleClass]="co.styleClass"
+    [sortable]="co.sortable" [hidden]="co.hidden">
+    <ng-template *ngIf="co.template" let-col let-obj="rowData" let-ri="rowIndex" pTemplate="body">
+      <tl-templateLoader [template]="templates.toArray() | tlTemplate:co.template" [data]="obj" [index]="ri"></tl-templateLoader>
+    </ng-template>
+  </p-column>
+</p-dataTable>
+
+<!--<isli-no-data [data]="dataTableObj.value" [noDataString]="noDataMsg"></isli-no-data>-->
+<tl-paging-box *ngIf="paginateObj && paginateObj.totalRecords" [pagingBoxObj]="paginateObj" (onPageChange)="onPage.emit($event)"></tl-paging-box>
+<div *ngIf="dataTableObj.value === undefined">
+  <div class="loadingBox" style="top:50px;">
+    <div class="loading" style="top:150px;"></div>
+  </div>
+</div>
+<div *ngIf="(dataTableObj.value && dataTableObj.value.length == 0) || dataTableObj.value===null">
+  <div class="no-data" [style.top.px]="styleTop">
+    <div class="center">
+      <img src="assets/images/listNodata.png" />
+      <p>{{noDataMsg ? noDataMsg :'暂无数据！' }}</p>
+    </div>
+  </div>
+</div>

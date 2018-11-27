@@ -1,0 +1,27 @@
+<div class="login">
+    <div class="p-grid login-form" ngForm [isliFormValidMsg]="errMsg">
+        <p-fieldset legend="用户登录">
+        <dl class="p-col app-input-box ">
+          <dt>用户名：</dt>
+          <dd>
+            <input type="text" name="username" [(ngModel)]="user.username" required maxlength="64">
+            <mpr-form-control-valid controlName="username"></mpr-form-control-valid>
+          </dd>
+        </dl>
+        <dl class="p-col app-input-box ">
+          <dt>密码:</dt>
+          <dd>
+            <input type="password" name="password" [(ngModel)]="user.password" required maxlength="64">
+            <mpr-form-control-valid controlName="password"></mpr-form-control-valid>
+          </dd>
+        </dl>
+        <dl class="p-col app-input-box ">
+          <dd class="remeber">
+            <p-checkbox name="remember" label="记住密码" [(ngModel)]="user.remember" value="1"></p-checkbox>
+            <button type="button" label="登陆" pButton (click)="handleLogin()"></button>
+          </dd>
+        </dl>
+        <div style="height: 20px"></div>
+      </p-fieldset>
+      </div>
+</div>

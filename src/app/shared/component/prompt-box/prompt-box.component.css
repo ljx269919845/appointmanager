@@ -1,0 +1,31 @@
+/* .prompts-box-position {} */
+
+.prompts-box {
+    min-width: 175px;
+    height: 115px;
+    background: #3d3d3d;
+    border-radius: 3px;
+    display: inline-block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -87px;
+    margin-top: -58px;
+    z-index: 99999;
+}
+
+.prompts-box-name {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 35px;
+    height: 35px;
+    text-align: center;
+    padding-top: 70px;
+    display: block;
+    background: url(/assets/images/prompts-box/success.png) top 20px center no-repeat;
+}
+
+.prompts-box-error .prompts-box-name {
+    background: #3D3D3D url(/assets/images/prompts-box/error.png) top 20px center no-repeat;
+}

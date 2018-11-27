@@ -1,0 +1,21 @@
+<div>
+    <tl-data-table [noDataMsg]="'暂无科室信息'"  [dataTableObj]="dataTableObj">
+        <ng-template tl-template="index" let-index="index">
+            {{index + 1}}
+         </ng-template>
+         <ng-template tl-template="sex" let-rowData>
+            {{rowData.doctorSex == 1 ? '男': '女'}}
+         </ng-template>
+         <ng-template tl-template="departId" let-rowData>
+            {{getDepartName(rowData.departId)}}
+         </ng-template>
+        <ng-template tl-template="status" let-rowData>
+           {{rowData.status|departmentStatus}}
+        </ng-template>
+        <ng-template tl-template="oper" let-rowData>
+          <button type="button"  pButton label="详情" (click)="handleShowDetail(rowData)"></button>
+          <button type="button" pButton label="休息" *ngIf="rowData.status" (click)="handleFrezee(rowData)"></button>
+          <button type="button" pButton label="出诊" *ngIf="!rowData.status" (click)="handleActive(rowData)"></button>
+        </ng-template>
+    </tl-data-table>
+  </div>

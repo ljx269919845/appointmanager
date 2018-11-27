@@ -1,0 +1,26 @@
+
+.body .p-col{
+  padding: 10 0;
+}
+
+.body{
+  .p-col{
+    dt {
+      width: 100px;
+      text-align: right;
+    }
+    dd {
+      margin-left: 10px;
+      padding: 5px;
+      input, textarea{
+        width: 300px;
+      }
+      input{
+        height: 30px;
+      }
+      button{
+        width: 100px;
+      }
+    }
+  }
+}

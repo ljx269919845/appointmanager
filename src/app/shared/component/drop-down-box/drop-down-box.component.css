@@ -1,0 +1,77 @@
+/*.drop-down-position{ position:relative; }*/
+
+.icon-drop-box {
+    border: 1px solid #a5a5a5;
+    position: relative;
+    background: #fff;
+}
+
+.icon-drop-box.readonly {
+    background: #fbfbfb;
+    border: 1px solid #d5d5d5;
+}
+
+.icon-drop-box.readonly input.icon-drop-box-input {
+    color: #d1d1d1;
+    background: #fbfbfb;
+}
+
+.icon-drop-box input.icon-drop-box-input {
+    border: none;
+    float: left;
+    color: #7e7e7e;
+    padding: 0 10px;
+    cursor: pointer;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.icon-drop-down {
+    width: 10px;
+    height: 24px;
+    display: block;
+    position: absolute;
+    right: 5px;
+    background: url(/assets/images/drop-down-box/default.png) center no-repeat;
+}
+
+.icon-drop-down.readonly {
+    background: none;
+}
+
+.drop-down-ul {
+    width: 100%;
+    border: 1px solid #a5a5a5;
+    border-top: 0;
+    background: #fff;
+    padding: 4px 0;
+    position: absolute;
+    z-index: 10004;
+}
+
+.drop-down-ul li {
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+    color: #838383;
+    cursor: pointer;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.drop-down-ul li:hover {
+    background: #e4f6f8;
+    color: #259dab;
+}
+
+.drop-down-ul li.active,
+.drop-down-ul li.active:hover {
+    color: #fff;
+    background: #3db9c8;
+}
+
+.drop-down-ul-auto {
+    overflow-y: auto;
+}

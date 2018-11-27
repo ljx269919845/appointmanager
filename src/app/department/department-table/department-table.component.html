@@ -1,0 +1,15 @@
+<div class="order-table">
+    <tl-data-table [noDataMsg]="'暂无科室信息'"  [dataTableObj]="dataTableObj">
+        <ng-template tl-template="index" let-index="index">
+            {{index + 1}}
+         </ng-template>
+        <ng-template tl-template="status" let-rowData>
+           {{rowData.status|departmentStatus}}
+        </ng-template>
+        <ng-template tl-template="oper" let-rowData>
+          <button type="button"  pButton label="详情" (click)="handleShowDetail(rowData)"></button>
+          <button type="button" pButton label="冻结" *ngIf="rowData.status" (click)="handleFrezee(rowData)"></button>
+          <button type="button" pButton label="激活" *ngIf="!rowData.status" (click)="handleActive(rowData)"></button>
+        </ng-template>
+    </tl-data-table>
+  </div>

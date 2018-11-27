@@ -1,0 +1,17 @@
+<div class="drop-down-position" [ngStyle]="ngStylePosition" (mouseleave)="positionMouseLeave()">
+  <div class="icon-drop-box" [class.readonly]="readonly" [style.border]="border"[ngStyle]="ngStyleDiv" [class.icon-drop-box-active]="toggleFlag"
+      (click)="clickToggle()" >
+    <input class="icon-drop-box-input" [style.color]="color" readonly type="text" [placeholder]="placeholder" [ngStyle]="ngStyleInput"
+      [(ngModel)]="value">
+    <div>
+      <i class="icon-drop-down" [class.readonly]="readonly" [class.icon-drop-up]="toggleFlag"></i>
+    </div>
+  </div>
+  <ul [hidden]="!toggleFlag"  isliScroll class="drop-down-ul" [ngClass]="{'drop-down-ul-auto':dropDownBoxValue&&dropDownBoxValue.length>=5}"
+    [ngStyle]="ngStyleUl" [@dialogState]="animationFlag ? 'visible' : 'hidden'">
+    <li class="drop-down-li" [class.active]="(i==index)" *ngFor="let obj of dropDownBoxValue;let i = index"
+      [ngStyle]="ngStyleLi" (click)="select(obj,i)" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()" title="{{obj[keyName]}}">{{obj[keyName]}}
+      <!--<span>{{obj[keyName]}}</span>-->
+    </li>
+  </ul>
+</div>

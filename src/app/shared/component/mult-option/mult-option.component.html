@@ -1,0 +1,10 @@
+<ng-container *ngIf="itemValues && itemValues.length">
+  <div [ngClass]="optionsClass">
+    <tl-drop-down-box [dropDownBoxValue]="itemValues" [placeholder]="'请选择'" [width]="width" [keyId]="keyId" [keyName]="keyName"
+      [(ngModel)]="selected" [readonly]="readonly">
+    </tl-drop-down-box>
+  </div>
+  <isli-mult-option [readonly]="readonly" [optionsClass]="optionsClass" [width]="width" [keyId]="keyId" [keyName]="keyName" [parentId]="selected" [level]="level+1"
+    (onSelectedChange)="handleSelectedChange($event)"></isli-mult-option>
+</ng-container>
+

@@ -1,0 +1,15 @@
+<div class="tooltips">
+  <a class="account-tips">
+    <div class="account-tip-box">
+      <div class="account-tip-scroll">
+        <div #myContent>
+          <ng-content select="content"> </ng-content>
+        </div>
+        <p  *ngIf="myContent.children.length === 0">
+          {{contentText}}
+        </p>
+      </div>
+    </div>
+  </a>
+</div>
+  

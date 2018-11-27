@@ -1,0 +1,10 @@
+<div class="tl-dialog">
+  <p-dialog [visible]="dialogObj.visible" (visibleChange)="visibleChange($event)" [header]="dialogObj.header" [width]="dialogObj.width"
+    [height]="dialogObj.height" [modal]="dialogObj.modal" [resizable]="false" [closeOnEscape]="dialogObj.closeOnEscape" [dismissableMask]="dialogObj.dismissableMask">
+    <ng-content></ng-content>
+    <div *ngIf="dialogObj.yesButton || dialogObj.noButton" class="tl-dialog-footer">
+      <button *ngIf="dialogObj.yesButton" class="tl-dialog-yes btn btn2" (click)="onClickYes.emit()">{{dialogObj.yesButton}}</button>
+      <button *ngIf="dialogObj.noButton" class="tl-dialog-no btn btn1" (click)="onClickNo.emit()">{{dialogObj.noButton}}</button>
+    </div>
+  </p-dialog>
+</div>

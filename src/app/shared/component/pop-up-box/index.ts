@@ -1,0 +1,1 @@
+export { PopUpBoxComponent } from './pop-up-box.component';

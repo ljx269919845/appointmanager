@@ -1,0 +1,2 @@
+<input type="text" [placeholder]="placeholderValue" [ngClass]="{'focus': focusFlag}"
+  (focus)="focus()" (blur)="blur()" [(ngModel)]="searchWord"  (ngModelChange)="handleSearchWordChange($event)"/>

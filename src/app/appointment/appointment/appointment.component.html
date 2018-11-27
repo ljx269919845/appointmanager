@@ -1,0 +1,15 @@
+<div>
+  <div class="leftnav">
+    <ul>
+      <li>
+        <a [routerLink]="['current']" routerLinkActive="active" >今日预约</a>
+      </li>
+      <li>
+        <a [routerLink]="['history']" routerLinkActive="active" >历史预约</a>
+        </li>
+    </ul>
+  </div>
+  <div class="rightbd">
+    <router-outlet></router-outlet>
+  </div>
+</div>

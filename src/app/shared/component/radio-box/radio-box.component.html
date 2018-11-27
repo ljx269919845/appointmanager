@@ -1,0 +1,3 @@
+<label [ngClass]="{'selected':inputValue==value}" [ngStyle]="{'width': width+'px'}">
+  <input hidden type="radio" [name]="inputName" [value]="inputValue" [(ngModel)]="value">{{labelName}}
+</label>

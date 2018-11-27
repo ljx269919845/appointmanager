@@ -1,0 +1,40 @@
+<ul class="paging-box clearfix">
+  <li class="paging-box-pre-default" [ngClass]="{'paging-box-pre':!preDisabled,'paging-box-pre-disabled':preDisabled}" (click)="clickPre()">
+    <a href="javascript:void(0);"><span></span></a>
+  </li>
+  <!--<li class="paging-box-page" *ngFor="let _page of pages; let i = index" (click)="clickPage(_page,i)">
+    <a [class.active]="_page==page" href="javascript:void(0);">{{_page}}</a>
+  </li>
+  <li class="paging-box-next-default" [ngClass]="{'paging-box-next':!nextDisabled,'paging-box-next-disabled':nextDisabled}" (click)="clickNext()">
+    <a href="javascript:void(0);"><span></span></a>
+  </li>
+  <li class="paging-box-btn">
+    <span>共{{totalPages}}页/共{{totalRecords}}条&nbsp;&nbsp;</span>
+    <span>到第&nbsp;<input #pageOnly type="text" (keyup)="keyUpSearch($event,pageOnly.value)">&nbsp;页</span>
+    <button class="btn-select" href="javascript:void(0);" (click)="clickOnly(pageOnly.value); pageOnly.value=''; ">跳转</button>
+  </li>
+</ul>--> 
+  <li *ngIf="showFirstPage" class="paging-box-page paging-box-page-index-total" (click)="clickIndexPage(1)">
+    <a href="javascript:void(0);">1</a>
+  </li>
+  <li *ngIf="showFirstPage" class="paging-box-page-ellipsis">
+    <a>···</a>
+  </li>
+  <li class="paging-box-page" *ngFor="let _page of pages; let i = index" (click)="clickPage(_page,i)">
+    <a class="paging-box-page-li" [class.active]="_page==page" href="javascript:void(0);">{{_page}}</a>
+  </li>
+  <li *ngIf="showLastPage" class="paging-box-page-ellipsis">
+    <a>···</a>
+  </li>
+  <li *ngIf="showLastPage" class="paging-box-page paging-box-page-index-total" (click)="clickTotalPage(totalPages)">
+    <a href="javascript:void(0);">{{totalPages}}</a>
+  </li>
+  <li class="paging-box-next-default" [ngClass]="{'paging-box-next':!nextDisabled,'paging-box-next-disabled':nextDisabled}">
+    <a href="javascript:void(0);" (click)="clickNext()"><span></span></a>
+  </li>
+  <li class="paging-box-btn">
+    <span>共{{totalPages}}页/共{{totalRecords}}条&nbsp;&nbsp;</span>
+    <span>到第&nbsp;<input #pageOnly [(ngModel)]="inputNum" (keyup)="enter($event, pageOnly, inputNum);" type="text" href="javascript:void(0);">&nbsp;页</span> 
+    <a class="btn-select" href="javascript:void(0);" (click)="clickOnly(pageOnly, inputNum); pageOnly.value='';">跳转</a>
+  </li>
+</ul>

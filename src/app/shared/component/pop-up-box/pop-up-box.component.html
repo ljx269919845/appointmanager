@@ -1,0 +1,7 @@
+<div style="z-index:999;">
+    <tl-loading-box [loadingBoxObj]="loadingBoxObj"></tl-loading-box>
+    <tl-prompt-box [promptBoxObj]="promptBoxObj"></tl-prompt-box>
+    <tl-confirm-cancel-box [confirmCancelBoxObj]="confirmCancelBoxObj" (onClickYes)="clickYes($event)"
+                           (onClickNo)="clickNo($event)"></tl-confirm-cancel-box>
+    <tl-image-magnify-box [imageMagnifyBoxObj]="imageMagnifyBoxObj"></tl-image-magnify-box>
+</div>

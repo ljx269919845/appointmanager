@@ -1,0 +1,103 @@
+/* You can add global styles to this file, and also import other style files */
+@charset "utf-8";
+body,button,dd,del,div,dl,dt,em,font,form,h1,h2,h3,h4,h5,h6,html,img,input,label,li,ol,p,span,strong,table,tbody,td,textarea,tfoot,th,thead,tr,tt,ul,var
+{margin:0;padding:0;font-size:13px;}
+ /* -webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:inherit} */
+body{color:#6b6a6a; -webkit-text-size-adjust:none;font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";}
+table{border-collapse:collapse;table-layout:fixed;border-spacing:0}
+ol li,ul li{list-style-type:none}
+img{border:none;vertical-align:top}
+button{outline:0;border:0 none;background-color:transparent;vertical-align:middle}
+input { height: 26px; line-height: 26px; color: #656565; border: 1px solid #a5a5a5;}
+input[type="button"]{ outline: 0 none;}
+input:focus {outline: none;}
+em{color:#f40;font-style:normal}
+a{outline:0;color:#5f6a6c;text-decoration:none}
+
+.clearfix:after,.clearfix:before{display:table;content:""}
+.clearfix:after{clear:both;overflow:hidden}
+.clearfix{zoom:1}
+
+.fl{float: left;}
+.fr{float: right;}
+
+::-webkit-scrollbar{width:8px;background-color:#f2f2f2}
+::-webkit-scrollbar-thumb{border-color:#f2f2f2;background-color:#d5d5d5}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+footer{ width: 100%; overflow: hidden; line-height: 24px; text-align: center; }
+/* 分页 */
+.page-box{width: 100%; display: flex; justify-content: center;}
+.paging-box li.paging-box-pre a:hover,
+.paging-box li.paging-box-next a:hover,
+.paging-box li.paging-box-btn a:hover { border: 1px solid #5CACE7; color: #5CACE7; }
+.paging-box li.paging-box-page a.active { border: 1px solid #5CACE7; background: #5CACE7; color: #ffffff; }
+/**placholder 的字体颜色**/
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color: #ACA899; opacity:1;
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: #b7b7b7;opacity:1;
+}
+/**input**/
+input:-ms-input-placeholder{
+  color: #b7b7b7;opacity:1;
+}
+
+input::-webkit-input-placeholder{
+  color: #b7b7b7;opacity:1;
+}
+input:-moz-placeholder{
+　color:#b7b7b7;opacity:1;
+}
+input::-moz-placeholder{
+　color:#b7b7b7;
+  opacity:1;
+}
+/**textarea**/
+textarea:-ms-input-placeholder{
+  color: #b7b7b7;opacity:1;
+}
+
+textarea::-webkit-input-placeholder{
+  color: #b7b7b7;opacity:1;
+}
+textarea:-moz-placeholder{
+　color:#b7b7b7;opacity:1;
+}
+　textarea::-moz-placeholder{
+　color:#b7b7b7;opacity:1;
+}
+.scrollbar {
+  background: #fff;
+  overflow-y: scroll;
+}
+.force-overflow {
+  min-height: 450px;
+}
+
+.scrollbar-primary::-webkit-scrollbar {
+width: 8px;
+background-color: #f7f7f7; }
+
+.scrollbar-primary::-webkit-scrollbar-thumb {
+border-radius: 10px;
+-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+background-color: #d0d0d0; }
+
+input{
+color:#666;
+}
+.autocomplete-suggestions{
+top:248px!important;
+width:450px!important;
+}
+.inline-block{
+  display: inline-block;
+}

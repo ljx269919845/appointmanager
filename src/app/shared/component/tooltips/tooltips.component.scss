@@ -1,0 +1,50 @@
+.account-tips {
+    background: url(/assets/images/tip.jpg) right center no-repeat;
+    display: block;
+    width: 26px;
+    height: 40px;
+    cursor: pointer;
+    position: absolute;
+    left: 120px;
+    top: 20px;
+    z-index: 29;
+}
+.account-tip-box {
+    position: absolute;
+    left: -83px;
+    top: 40px;
+    background: #fcf7f5;
+    border: 1px solid #eda469;
+    width: 288px;
+    padding: 15px;
+    display: none;
+    font-size: 11px;
+}
+.account-tip-box:before,.account-tip-box:after{
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: -10px;
+    left: 89px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 11px solid #fcf7f5;
+}
+.account-tip-box:before{
+    top: -11px;
+    left: 88px;
+    border-left: 11px solid transparent;
+    border-right: 11px solid transparent;
+    border-bottom: 11px solid #eda469;
+}
+.account-tips:hover .account-tip-box {
+    display: block;
+}
+.account-tip-scroll p {
+    line-height: 18px;
+    color: #666;
+    font-size: 12px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
