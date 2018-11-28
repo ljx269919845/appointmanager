@@ -33,6 +33,6 @@ const routes: Routes = [{
     SharedModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [AppointmentTableComponent, AppointmentComponent]
+  declarations: [AppointmentTableComponent, AppointmentComponent, CurrentAppointmentComponent, HistoryAppointmentComponent]
 })
 export class AppointmentModule { }
