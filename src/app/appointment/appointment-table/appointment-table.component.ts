@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { DataTableObj, DataColumnObj } from '../../shared';
 
 @Component({
@@ -7,7 +7,7 @@ import { DataTableObj, DataColumnObj } from '../../shared';
   styleUrls: ['./appointment-table.component.scss']
 })
 export class AppointmentTableComponent implements OnInit {
-
+  @Output() OnPageChange = new EventEmitter();
   public dataTableObj: DataTableObj;
   constructor() {
     this.dataTableObj = new DataTableObj([
@@ -26,4 +26,7 @@ export class AppointmentTableComponent implements OnInit {
 
   }
 
+  handlePageChange(page) {
+    this.OnPageChange.emit(page);
+  }
 }

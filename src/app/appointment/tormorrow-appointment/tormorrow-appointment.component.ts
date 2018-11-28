@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { DoctorService } from '../../service/doctor.service';
-import { AppointService } from '../../service/appointment.service';
 import { Doctor } from '../../model';
+import { DepartMent } from '../../model/department.model';
 import { AppointMents, TIME_FRAME_DRAOPS } from '../../model/appointment.model';
 import { PagingBoxObj } from '../../shared';
+import { DoctorService } from '../../service/doctor.service';
+import { AppointService } from '../../service/appointment.service';
 import { DepartMentService } from '../../service/department.service';
-import { DepartMent } from '../../model/department.model';
 
 @Component({
-  selector: 'app-current-appointment',
-  templateUrl: './current-appointment.component.html',
-  styleUrls: ['./current-appointment.component.css']
+  selector: 'app-tormorrow-appointment',
+  templateUrl: './tormorrow-appointment.component.html',
+  styleUrls: ['./tormorrow-appointment.component.css']
 })
-export class CurrentAppointmentComponent implements OnInit {
+export class TormorrowAppointmentComponent implements OnInit {
 
   public search = {searchWord: '', timeFrame: '', docotrId: null, departId: null};
 

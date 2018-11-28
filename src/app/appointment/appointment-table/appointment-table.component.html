@@ -1,5 +1,5 @@
 <div>
-    <tl-data-table [noDataMsg]="'暂无预约信息'"  [dataTableObj]="dataTableObj">
+    <tl-data-table [noDataMsg]="'暂无预约信息'"  [dataTableObj]="dataTableObj" (onPage)="handlePageChange($event)">
         <ng-template tl-template="index" let-index="index">
             {{index + 1}}
          </ng-template>

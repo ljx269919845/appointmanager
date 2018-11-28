@@ -40,4 +40,9 @@ export class AppointService {
   public getAllAppoints(status?: number, departId?: string, doctorId?: string) {
     return this.http.get(HTTP_GET_APPOINTMENT, {}, {status, departId, doctorId});
   }
+
+  public getAllAppointMents(searchWord?: string, timeFrame?: string, departId?: string, doctorId?: string,
+     dateStart?: string, dateEnd?: string, pageIndex?: number, pageSize?: number) {
+    return this.http.get(HTTP_GET_APPOINTMENT, {}, {searchWord, timeFrame, departId, doctorId, dateStart, dateEnd, pageIndex, pageSize});
+  }
 }

@@ -1,3 +1,9 @@
-<p>
-  user-table works!
-</p>
+<div>
+    <tl-data-table [noDataMsg]="'暂无预约信息'"  [dataTableObj]="dataTableObj" (onPage)="handlePageChange($event)">
+        <ng-template tl-template="index" let-index="index">
+            {{index + 1}}
+         </ng-template>
+        <ng-template tl-template="oper" let-rowData>
+        </ng-template>
+    </tl-data-table>
+</div>
