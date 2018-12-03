@@ -50,8 +50,9 @@ export class AppointSet {
 export class AppointSetVo {
   constructor(
     public id: string,
-    public departId: number,
-    public doctorId: number,
+    public depart: DepartMent,
+    public doctor: Doctor,
+    public user: User,
     public timeFrame: String,
     public userNum: number,
     public surplusNum: number,
@@ -63,7 +64,7 @@ export class AppointSetVo {
 
 export class AppointMents {
   constructor(
-    public appointSetList: Array<AppointSetVo>,
+    public appointSetList: Array<AppointSet>,
     public appointNum: number
   ) {}
 }

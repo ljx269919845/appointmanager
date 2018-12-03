@@ -1,1 +1,7 @@
 
+:host ::ng-deep .ui-datepicker{
+  width: 300px;
+}
+:host ::ng-deep .ui-datepicker .ui-datepicker-title select{
+  padding: 2px 8px;
+}

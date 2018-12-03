@@ -3,6 +3,9 @@
     display: block;
     float: left;
   }
+  .first dl{
+    padding: 5px 0;
+  }
   dt,dd{
     display: inline-block;
   }
@@ -24,8 +27,8 @@
     width: 210px;
   }
   .doctor-img{
-    margin-top: 1.5em;
     margin-left: 1.5em;
+    margin-top:10px;
     .img {
       width: 100px;
       height: 100px;
@@ -38,11 +41,12 @@
     }
     .select{
       position: relative;
-      margin-left: 20px;
+      margin-left: 10px;
       input,button{
         position: absolute;
-        width: 100px;
+        width: 70px;
         height: 30px;
+        line-height: 30px;
         left: 0;
         bottom: 0;
       }
@@ -53,7 +57,7 @@
   }
 
   textarea{
-    width: 500px;
+    width: 515px;
     height: 100px;
   }
 

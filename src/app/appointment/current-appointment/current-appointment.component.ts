@@ -2,19 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { DoctorService } from '../../service/doctor.service';
 import { AppointService } from '../../service/appointment.service';
 import { Doctor } from '../../model';
-import { AppointMents, TIME_FRAME_DRAOPS } from '../../model/appointment.model';
+import { AppointMents, TIME_FRAME_DRAOPS, AppointSetVo } from '../../model/appointment.model';
 import { PagingBoxObj } from '../../shared';
 import { DepartMentService } from '../../service/department.service';
 import { DepartMent } from '../../model/department.model';
+import { MessageService } from 'primeng/primeng';
 
 @Component({
   selector: 'app-current-appointment',
   templateUrl: './current-appointment.component.html',
-  styleUrls: ['./current-appointment.component.css']
+  styleUrls: ['./current-appointment.component.scss']
 })
 export class CurrentAppointmentComponent implements OnInit {
 
-  public search = {searchWord: '', timeFrame: '', docotrId: null, departId: null};
+  public search = {searchWord: '', timeFrame: '', docotrId: undefined, departId: undefined};
 
   public doctors: Array<Doctor>;
   public departs: Array<DepartMent>;
@@ -22,14 +23,16 @@ export class CurrentAppointmentComponent implements OnInit {
   public paginateObj = new PagingBoxObj(1, 0, 20);
   public times = TIME_FRAME_DRAOPS;
   constructor(private doctorServ: DoctorService,
-    private appointServ: AppointService, private departServ: DepartMentService) { }
+    private appointServ: AppointService,
+    private departServ: DepartMentService,
+    private messageServ: MessageService) { }
 
   ngOnInit() {
     this.doctorServ.getAllDoctors().success((res) => {
-      this.doctors = [{id: '', doctorName: '所有医生'}].concat(res.data || []);
+      this.doctors = [{id: undefined, doctorName: '所有医生'}].concat(res.data || []);
     });
     this.departServ.getAllDepartMents().success(res => {
-      this.departs = [{id: '', departName: '所有科室'}].concat(res.data || []);
+      this.departs = [{id: undefined , departName: '所有科室'}].concat(res.data || []);
     });
     this.loadData();
   }
@@ -41,6 +44,14 @@ export class CurrentAppointmentComponent implements OnInit {
 
   handleSearch() {
     this.loadData();
+  }
+
+  handleSubmit(appointSet: AppointSetVo) {
+    this.appointServ.changeAppointStatus(appointSet.id, 3).success(() => {
+      this.messageServ.add({severity: 'success', summary: '确认成功！'});
+    }).error(() => {
+      this.messageServ.add({severity: 'error', summary: '确认失败！'});
+    });
   }
 
   private loadData() {

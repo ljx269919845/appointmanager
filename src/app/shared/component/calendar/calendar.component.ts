@@ -35,6 +35,7 @@ const CALENDAR = {
 @Component({
     selector: 'tl-calendar',
     templateUrl: './calendar.component.html',
+    styleUrls: ['./calendar.component.css'],
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,
@@ -109,7 +110,7 @@ export class CalendarComponent implements ControlValueAccessor, OnChanges {
             this.value = value;
         }
     }
-    //字符串转化为日期格式
+    // 字符串转化为日期格式
     strToDate(str) {
         if (str instanceof Date) {
             return str;
@@ -118,12 +119,12 @@ export class CalendarComponent implements ControlValueAccessor, OnChanges {
             return new Date();
         }
         str = str.split(' ')[0];
-        let arr = str.split('-');
-        let date = new Date(arr[0], Number(arr[1]) - 1, arr[2]);
+        const arr = str.split('-');
+        const date = new Date(arr[0], Number(arr[1]) - 1, arr[2]);
         return date;
     }
 
-    //日期格式转化
+    // 日期格式转化
     formatDate(date) {
         if (!date) {
             return '';

@@ -8,6 +8,7 @@ const HTTP_POST_APPOINTSET_UPDATE = '/medical/appoint/setting/{id}/update';
 const HTTP_DELTE_APPOINTSET = '/medical/appoint/setting/{id}/delete';
 const HTTP_POST_APPOINTMENT_STATUS = '/medical/doctor/appoint/{appointId}/{status}';
 const HTTP_GET_APPOINTMENT = '/medical/appoint/setting/list';
+const HTTP_GET_APPOINTEENTS = '/medical/doctor/appoint/list';
 
 @Injectable()
 export class AppointService {
@@ -25,12 +26,12 @@ export class AppointService {
       doctorId: appointSet.doctor.id, timeFrame: appointSet.timeFrame, userNum: appointSet.userNum, surplusNum: appointSet.userNum});
   }
 
-  public deleteAPointSet(doctorId: string) {
-    return this.http.delete(HTTP_DELTE_APPOINTSET, {id: doctorId});
+  public deleteAPointSet(appointId: string) {
+    return this.http.delete(HTTP_DELTE_APPOINTSET, {id: appointId});
   }
 
-  public changeDoctorStatus(doctorId: string, status: number) {
-    // return this.http.post(HTTP_POST_DOCTOR_STATUS, {id: doctorId, status: status}, {}, {});
+  public changeAppointStatus(appointId: string, status: number) {
+     return this.http.post(HTTP_POST_APPOINTMENT_STATUS, {id: appointId, status: status}, {}, {});
   }
 
   public cancelAppointMent(appointId: string, status: number) {
@@ -43,6 +44,6 @@ export class AppointService {
 
   public getAllAppointMents(searchWord?: string, timeFrame?: string, departId?: string, doctorId?: string,
      dateStart?: string, dateEnd?: string, pageIndex?: number, pageSize?: number) {
-    return this.http.get(HTTP_GET_APPOINTMENT, {}, {searchWord, timeFrame, departId, doctorId, dateStart, dateEnd, pageIndex, pageSize});
+    return this.http.get(HTTP_GET_APPOINTEENTS, {}, {searchWord, timeFrame, departId, doctorId, dateStart, dateEnd, pageIndex, pageSize});
   }
 }

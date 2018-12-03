@@ -2,7 +2,7 @@
   <div class="p-grid doctor" ngForm [isliFormValidMsg]="errMsg">
     <div class="p-col-12">
       <div class="p-grid">
-        <div class="p-col-6">
+        <div class="p-col-6 first">
           <dl>
             <dt>姓名:</dt>
             <dd>
@@ -25,7 +25,7 @@
                   <input type="hidden" name="doctorImg" [(ngModel)]="doctor.doctorImg">
                 </div>
                 <div class="p-col-4 select">
-                  <button type="button">选择图片</button>
+                  <button type="button" pButton>选择图片</button>
                   <input type=file accept="image/*" (change)="handleFileChange($event)">
                 </div>
                 <mpr-form-control-valid controlName="doctorImg"></mpr-form-control-valid>
@@ -59,7 +59,7 @@
         </dd>
       </dl>
       <dl>
-        <dt>科室：</dt>
+        <dt>科室:</dt>
         <dd>
           <tl-drop-down name="departId" [(ngModel)]="doctor.departId" [autoWidth]="false" [dataValue]="departMent" labelName="departName" valueName="id"></tl-drop-down>
         </dd>
@@ -67,7 +67,7 @@
     </div>
     <div class="p-col-12">
       <dl>
-        <dt style="vertical-align: top">简介：</dt>
+        <dt style="vertical-align: top">简介:</dt>
         <dd>
           <textarea name="doctorBref" [(ngModel)]="doctor.doctorBref"></textarea>
         </dd>

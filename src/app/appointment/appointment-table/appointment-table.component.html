@@ -1,9 +1,30 @@
 <div>
-    <tl-data-table [noDataMsg]="'暂无预约信息'"  [dataTableObj]="dataTableObj" (onPage)="handlePageChange($event)">
+    <tl-data-table [noDataMsg]="'暂无预约信息'"
+     [dataTableObj]="dataTableObj" (onPage)="handlePageChange($event)" [paginateObj]="pageObj">
         <ng-template tl-template="index" let-index="index">
             {{index + 1}}
          </ng-template>
+         <ng-template tl-template="username" let-rowData>
+           {{rowData?.user?.userName}}
+        </ng-template>
+        <ng-template tl-template="phone" let-rowData>
+            {{rowData?.user?.userName}}
+         </ng-template>
+         <ng-template tl-template="sex" let-rowData>
+            {{rowData?.user?.userSex == 1 ? '男': '女'}}
+         </ng-template>
+         <ng-template tl-template="doctor" let-rowData>
+            {{rowData?.doctor?.doctorName}}
+         </ng-template>
+         <ng-template tl-template="depart" let-rowData>
+            {{rowData?.depart?.departName}}
+         </ng-template>
+         <ng-template tl-template="status" let-rowData>
+            {{rowData?.status | appointStatus}}
+         </ng-template>
         <ng-template tl-template="oper" let-rowData>
+          <button *ngIf="day==2" pButton label="取消预约" (click)="handleCancelApponit(rowData)"></button>
+          <button *ngIf="day==1" pButton label="确认患者看病" (click)="handleSubmitAppoint(rowData)"></button>
         </ng-template>
     </tl-data-table>
   </div>

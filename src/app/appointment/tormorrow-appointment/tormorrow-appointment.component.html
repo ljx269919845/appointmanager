@@ -1,25 +1,25 @@
 <div>
-    <div class="search g-grid">
-      <div class="g-col">
-        <label>关键字:</label>
-        <input type="text" placeholder="请输入姓名、手机号" [(ngModel)]="search.searchWord">
-      </div>
-      <div class="g-col">
-        <label>预约时间:</label>
-        <tl-drop-down [dataValue]="times" [(ngModel)]="search.timeFrame" valueName="name"></tl-drop-down>
-      </div>
-      <div class="g-col">
-        <label>预约医生</label>
-        <tl-drop-down [dataValue]="doctors" [(ngModel)]="search.doctorId" labelName="doctorName"></tl-drop-down>
-      </div>
-      <div class="g-col">
-          <label>预约科室</label>
-          <tl-drop-down [dataValue]="departs" [(ngModel)]="search.departId" labelName="departName"></tl-drop-down>
-      </div>
-      <div class="g-col">
-        <button type="button" (click)="handleSearch()"></button>
-      </div>
+  <div class="search p-grid">
+    <div class="p-col-4">
+      <label>关键字:</label>
+      <input type="text" pInputText  placeholder="请输入姓名、手机号" [(ngModel)]="search.searchWord">
     </div>
-    <app-appointment-table [doctors]="doctors" [departs]="departs" [dataValue]="appointMents?.appointSetList"
-      (OnPageChange)="handlePageChange($event)"></app-appointment-table>
+    <div class="p-col-4">
+      <label>预约时间:</label>
+      <tl-drop-down [dataValue]="times" [(ngModel)]="search.timeFrame" valueName="name"></tl-drop-down>
+    </div>
+    <div class="p-col-4">
+      <label>预约医生:</label>
+      <tl-drop-down [dataValue]="doctors" [(ngModel)]="search.doctorId" labelName="doctorName"></tl-drop-down>
+    </div>
+    <div class="p-col-4">
+        <label>预约科室:</label>
+        <tl-drop-down [dataValue]="departs" [(ngModel)]="search.departId" labelName="departName"></tl-drop-down>
+    </div>
+    <div class="p-col-4">
+      <button type="button" pButton label="搜索" (click)="handleSearch()"></button>
+    </div>
   </div>
+  <app-appointment-table [dataValue]="appointMents?.appointSetList" [day]="2" [totalCount]="paginateObj.totalRecords"
+    (OnPageChange)="handlePageChange($event)" (OnCancel)="handleCancel($event)"></app-appointment-table>
+</div>

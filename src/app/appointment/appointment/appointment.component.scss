@@ -1,15 +1,52 @@
 .bd{
-  min-height: calc(100% - 83px);
-  margin: 15px auto 0;
-  display: flex;
-  align-items: stretch;
+  margin: 15px auto;
   padding-bottom: 15px;
   box-sizing: border-box;
-  flex-direction: row;
+  height: calc(100% - 110px);
+  display: flex;
   .leftnav{
     width: 200px;
+    border-right: 1px solid #ccc;
+    height: 100%;
+    li{
+      padding: 10px;
+      a{
+        display: inline-block;
+        height: 20px;
+      }
+    }
+    ::after{
+      clear: both;
+      zoom: 1;
+    }
   }
   .rightbd{
-    width: 80%;
+    width: calc(100% - 210px);
+    overflow: auto;
+    padding: 0 20px;
   }
+}
+
+
+:host ::ng-deep{
+  .search{
+    label{
+      width: 80px;
+      text-align: right;
+      padding-right: 10px;
+      display: inline-block;
+    }
+    input{
+      height: 32px;
+      width: 150px;
+    }
+    .ui-dropdown{
+      min-width: 150px;
+    }
+    button{
+      width: 100px;
+      height: 30px;
+    }
+  }
+
 }

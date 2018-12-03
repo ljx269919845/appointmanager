@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { FormValidModule } from 'mpr-form-valid';
-import { DropdownModule, ButtonModule, InputTextareaModule, FieldsetModule, CheckboxModule, RadioButtonModule, DialogModule } from 'primeng/primeng';
+import { DropdownModule, ButtonModule, InputTextareaModule,
+  FieldsetModule, CheckboxModule, RadioButtonModule, DialogModule, InputTextModule } from 'primeng/primeng';
 
 import { ComponentModule } from './component/component.module';
 import { DirectiveModule } from './directive/directive.module';
@@ -30,6 +31,7 @@ import {ToastModule} from 'primeng/toast';
         ToastModule,
         RadioButtonModule,
         DialogModule,
+        InputTextModule
     ],
     exports: [
         DropdownModule,
@@ -46,7 +48,8 @@ import {ToastModule} from 'primeng/toast';
         CheckboxModule,
         ToastModule,
         RadioButtonModule,
-        DialogModule
+        DialogModule,
+        InputTextModule
     ],
     providers: [ ]
 })

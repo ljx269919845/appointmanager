@@ -18,7 +18,8 @@ import { CommonFuncService } from '../../core/common-func.service';
 @Component({
     selector: 'tl-drop-down',
     template: `
-        <p-dropdown class="tl-drop-down" [disabled]="disabled" [style.color]="disabled?'#BDBDBD':'#000'" [style]="StyleClass" [options]="_dataValue"
+        <p-dropdown class="tl-drop-down" [disabled]="disabled" [style.color]="disabled?'#BDBDBD':'#000'"
+        [style]="StyleClass" [options]="_dataValue"
         [(ngModel)]="selectedDropDown" [filter]="filter" [autoWidth]="autoWidth">
             <ng-template let-obj pTemplate="item">
                 <div class="ui-helper-clearfix">

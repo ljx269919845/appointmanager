@@ -17,6 +17,7 @@ import { BookTypePipe } from './book-type.pipe';
 import { PublicationTypePipe } from './publication-type.pipe';
 import { PlatformPipe } from './platform.pipe';
 import { DepartMentSatusPipes } from './department-status.pipe';
+import { AppointSatusPipes } from './appointStatus.pipe';
 
 @NgModule({
     imports: [
@@ -38,7 +39,8 @@ import { DepartMentSatusPipes } from './department-status.pipe';
         BookTypePipe,
         PublicationTypePipe,
         PlatformPipe,
-        DepartMentSatusPipes
+        DepartMentSatusPipes,
+        AppointSatusPipes
     ],
     exports: [
         TemplateRefPipe,
@@ -56,7 +58,8 @@ import { DepartMentSatusPipes } from './department-status.pipe';
         BookTypePipe,
         PublicationTypePipe,
         PlatformPipe,
-        DepartMentSatusPipes
+        DepartMentSatusPipes,
+        AppointSatusPipes
     ]
 })
 export class PipesModule { }
