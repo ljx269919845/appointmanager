@@ -101,3 +101,8 @@ width:450px!important;
 .inline-block{
   display: inline-block;
 }
+
+table td{
+    vertical-align: middle;
+    text-align: center;
+}
