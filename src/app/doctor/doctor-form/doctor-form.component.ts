@@ -57,7 +57,7 @@ export class DoctorFormComponent implements OnInit {
   handleFileChange(event) {
     this.imageUploader.setImageFile(event.target.files[0]);
     this.imageUploader.post({}, {}).success((res) => {
-      this.form.controls['doctorImg'].setValue(res.data && res.data.imagePath);
+      this.form.controls['doctorImg'].setValue(res.data && res.data);
     }).error(() => {
       this.form.controls['doctorImg'].setErrors({uploadError: true}, {emitEvent: true});
     });

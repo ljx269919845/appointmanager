@@ -1,5 +1,8 @@
 <div class="item">
   <h3>{{appointItem?.timeFrame}}   放号总量：{{appointItem?.realyTotal}}</h3>
+  <div class="add" *ngIf="waitSettingDoctors.length">
+    <button pButton label="新增放号策略" (click)="handleCreateClick()"></button>
+  </div>
   <div class="body">
     <p class="no-pro" *ngIf="!appointItem || !appointItem.appointSets || !appointItem.appointSets.length">
       暂未配置放号信息
@@ -19,9 +22,6 @@
           </li>
         </ul>
     </div>
-    <div class="add" *ngIf="waitSettingDoctors.length">
-        <button pButton label="新增放号策略" (click)="handleCreateClick()"></button>
-      </div>
   </div>
 </div>
 <p-dialog *ngIf="showCreate" header="新增放号策略" [visible]="true" [width]="600" [closable]="false" [modal]="true">

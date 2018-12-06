@@ -23,12 +23,12 @@
               <div class="p-col-8 img">
                   <img src="{{doctor.doctorImg}}">
                   <input type="hidden" name="doctorImg" [(ngModel)]="doctor.doctorImg">
+                  <mpr-form-control-valid controlName="doctorImg"></mpr-form-control-valid>
                 </div>
                 <div class="p-col-4 select">
                   <button type="button" pButton>选择图片</button>
                   <input type=file accept="image/*" (change)="handleFileChange($event)">
                 </div>
-                <mpr-form-control-valid controlName="doctorImg"></mpr-form-control-valid>
           </div>
         </div>
       </div>

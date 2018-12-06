@@ -195,7 +195,7 @@ export class ImageService {
       const imgSize = imageSize ? imageSize : 100 * 1024;
       const imgWidth = imageWidth ? imageWidth : 50;
       const imgHeight = imageHeight ? imageHeight : 50;
-      const imageUpload = new ImageUploadData(this.imageUploader, IMAGE_UPLOAD_PATH);
+      const imageUpload = new ImageUploadData(this.imageUploader, IMAGE_UPLOAD_PATH, 'file');
       imageUpload.setImageValidOptions(new ImageVaildOptions(validFunc, imgSize, imgWidth, imgHeight));
       return imageUpload;
   }
