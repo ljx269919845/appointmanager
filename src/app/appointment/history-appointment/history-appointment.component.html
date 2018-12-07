@@ -38,6 +38,6 @@
     </div>
   </div>
 
-  <app-appointment-table [dataValue]="appointMents?.appointSetList" (OnPageChange)="handlePageChange($event)" [totalCount]="paginateObj.totalRecords"
+  <app-appointment-table [dataValue]="appointMents" (OnPageChange)="handlePageChange($event)" [totalCount]="paginateObj.totalRecords"
     [day]="3"></app-appointment-table>
 </ng-container>

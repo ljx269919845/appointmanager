@@ -14,7 +14,7 @@ import { DepartMentService } from '../../service/department.service';
 })
 export class TormorrowAppointmentComponent implements OnInit {
 
-  public search = {searchWord: '', timeFrame: '', docotrId: null, departId: null};
+  public search = {searchWord: '', timeFrame: '', docotrId: undefined, departId: undefined};
 
   public doctors: Array<Doctor>;
   public departs: Array<DepartMent>;
@@ -26,10 +26,10 @@ export class TormorrowAppointmentComponent implements OnInit {
 
   ngOnInit() {
     this.doctorServ.getAllDoctors().success((res) => {
-      this.doctors = [{id: '', doctorName: '所有医生'}].concat(res.data || []);
+      this.doctors = [{id: undefined, doctorName: '所有医生'}].concat(res.data || []);
     });
     this.departServ.getAllDepartMents().success(res => {
-      this.departs = [{id: '', departName: '所有科室'}].concat(res.data || []);
+      this.departs = [{id: undefined, departName: '所有科室'}].concat(res.data || []);
     });
     this.loadData();
   }

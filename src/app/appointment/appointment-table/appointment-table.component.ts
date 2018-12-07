@@ -20,7 +20,7 @@ export class AppointmentTableComponent implements OnInit, OnChanges {
   constructor() {
     this.dataTableObj = new DataTableObj([
       new DataColumnObj('序号', false, null, 'index', false, null, {width: '5%'}),
-      new DataColumnObj('预约时间', false, 'timeFrame', null, false, null, {width: '15%'}),
+      new DataColumnObj('预约时间', false, 'appointTime', null, false, null, {width: '15%'}),
       new DataColumnObj('预约用户', false, null, 'username', false, null, {width: '10%'}),
       new DataColumnObj('手机号', false, null, 'phone', false, null, {width: '10%'}),
       new DataColumnObj('性别', false, null, 'sex', false, null, {width: '5%'}),
@@ -43,6 +43,9 @@ export class AppointmentTableComponent implements OnInit, OnChanges {
     }
     if ('totalCount' in changes) {
       this.pageObj = this.totalCount || 0;
+    }
+    if('dataValue' in changes){
+      this.dataTableObj.value = this.dataValue;
     }
   }
 

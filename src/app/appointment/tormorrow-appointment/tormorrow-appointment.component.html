@@ -30,8 +30,8 @@
       <button type="button" pButton label="搜索" class="btn btn-blue" (click)="handleSearch()"></button>
     </div>
   </div>
-  
-  <app-appointment-table [dataValue]="appointMents?.appointSetList" [day]="2" [totalCount]="paginateObj.totalRecords"
+
+  <app-appointment-table [dataValue]="appointMents" [day]="2" [totalCount]="paginateObj.totalRecords"
   (OnPageChange)="handlePageChange($event)" (OnCancel)="handleCancel($event)"></app-appointment-table>
-  
+
 </ng-container>
