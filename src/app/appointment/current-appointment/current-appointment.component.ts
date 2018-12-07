@@ -55,8 +55,13 @@ export class CurrentAppointmentComponent implements OnInit {
   }
 
   private loadData() {
+    const TOMORROW = new Date();
+  let TOMORROW_TEXT = `${TOMORROW.getFullYear()}-` + `${TOMORROW.getMonth() > 8 ?
+    TOMORROW.getMonth() + 1 : '0' + (TOMORROW.getMonth() + 1)}-`;
+  TOMORROW_TEXT += `${TOMORROW.getDate() > 9 ? TOMORROW.getDate() : '0' + TOMORROW.getDate()}`;
     this.appointServ.getAllAppointMents(this.search.searchWord, this.search.timeFrame,
-      this.search.departId, this.search.docotrId, null, null, this.paginateObj.page, this.paginateObj.rows).success(res => {
+      this.search.departId, this.search.docotrId, TOMORROW_TEXT, TOMORROW_TEXT,
+      this.paginateObj.page, this.paginateObj.rows).success(res => {
       this.appointMents = res.data || {};
       this.paginateObj.totalRecords = this.appointMents.appointNum || 0;
     });

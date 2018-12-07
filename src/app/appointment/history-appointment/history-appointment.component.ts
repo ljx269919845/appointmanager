@@ -15,7 +15,7 @@ import { DepartMentService } from '../../service/department.service';
 export class HistoryAppointmentComponent implements OnInit {
 
   public search = {searchWord: '', timeFrame: '', docotrId: undefined, departId: undefined,
-  date: {beginDate: null, enDate: null}};
+  date: null};
 
   public doctors: Array<Doctor>;
   public departs: Array<DepartMent>;

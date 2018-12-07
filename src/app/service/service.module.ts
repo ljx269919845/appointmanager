@@ -1,3 +1,4 @@
+import { UserService } from './user.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginService } from './login.service';
@@ -10,6 +11,6 @@ import { AppointService } from './appointment.service';
     CommonModule
   ],
   declarations: [],
-  providers: [LoginService, DepartMentService, DoctorService, AppointService]
+  providers: [LoginService, DepartMentService, DoctorService, AppointService, UserService]
 })
 export class ServiceModule { }

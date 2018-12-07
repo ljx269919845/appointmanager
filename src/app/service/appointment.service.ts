@@ -43,7 +43,7 @@ export class AppointService {
   }
 
   public getAllAppointMents(searchWord?: string, timeFrame?: string, departId?: string, doctorId?: string,
-     dateStart?: string, dateEnd?: string, pageIndex?: number, pageSize?: number) {
-    return this.http.get(HTTP_GET_APPOINTEENTS, {}, {searchWord, timeFrame, departId, doctorId, dateStart, dateEnd, pageIndex, pageSize});
+    beginDate?: string, endDate?: string, pageIndex?: number, pageSize?: number) {
+    return this.http.get(HTTP_GET_APPOINTEENTS, {}, {searchWord, timeFrame, departId, doctorId, beginDate, endDate, pageIndex, pageSize});
   }
 }
