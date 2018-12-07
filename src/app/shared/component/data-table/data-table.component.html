@@ -15,9 +15,9 @@
   </p-column>
 </p-dataTable>
 
-<!--<isli-no-data [data]="dataTableObj.value" [noDataString]="noDataMsg"></isli-no-data>-->
+<isli-no-data [data]="dataTableObj.value" [noDataString]="noDataMsg"></isli-no-data>
 <tl-paging-box *ngIf="paginateObj && paginateObj.totalRecords" [pagingBoxObj]="paginateObj" (onPageChange)="onPage.emit($event)"></tl-paging-box>
-<div *ngIf="dataTableObj.value === undefined">
+<!-- <div *ngIf="dataTableObj.value === undefined">
   <div class="loadingBox" style="top:50px;">
     <div class="loading" style="top:150px;"></div>
   </div>
@@ -29,4 +29,4 @@
       <p>{{noDataMsg ? noDataMsg :'暂无数据！' }}</p>
     </div>
   </div>
-</div>
+</div> -->

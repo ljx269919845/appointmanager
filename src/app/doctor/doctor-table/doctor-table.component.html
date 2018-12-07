@@ -17,8 +17,8 @@
         </ng-template>
         <ng-template tl-template="oper" let-rowData>
           <button type="button"  pButton label="详情" (click)="handleShowDetail(rowData)"></button>
-          <button type="button" pButton label="休息" class="red" *ngIf="rowData.status" (click)="handleFrezee(rowData)"></button>
-          <button type="button" pButton label="出诊" class="blue" *ngIf="!rowData.status" (click)="handleActive(rowData)"></button>
+          <button type="button" pButton label="休息" class="blue" *ngIf="rowData.status" (click)="handleFrezee(rowData)"></button>
+          <button type="button" pButton label="出诊" class="red" *ngIf="!rowData.status" (click)="handleActive(rowData)"></button>
         </ng-template>
     </tl-data-table>
   </div>

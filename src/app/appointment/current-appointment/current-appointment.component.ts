@@ -7,6 +7,7 @@ import { PagingBoxObj } from '../../shared';
 import { DepartMentService } from '../../service/department.service';
 import { DepartMent } from '../../model/department.model';
 import { MessageService } from 'primeng/primeng';
+import { SubjectService, SUBJECT } from '../../core';
 
 @Component({
   selector: 'app-current-appointment',
@@ -15,24 +16,27 @@ import { MessageService } from 'primeng/primeng';
 })
 export class CurrentAppointmentComponent implements OnInit {
 
-  public search = {searchWord: '', timeFrame: '', docotrId: undefined, departId: undefined};
+  public search = { searchWord: '', timeFrame: '', docotrId: undefined, departId: undefined };
 
   public doctors: Array<Doctor>;
   public departs: Array<DepartMent>;
   public appointMents: AppointMents;
   public paginateObj = new PagingBoxObj(1, 0, 20);
   public times = TIME_FRAME_DRAOPS;
-  constructor(private doctorServ: DoctorService,
+  constructor(
+    private doctorServ: DoctorService,
     private appointServ: AppointService,
     private departServ: DepartMentService,
-    private messageServ: MessageService) { }
+    private messageServ: MessageService,
+    private subjectService: SubjectService
+  ) { }
 
   ngOnInit() {
     this.doctorServ.getAllDoctors().success((res) => {
-      this.doctors = [{id: undefined, doctorName: '所有医生'}].concat(res.data || []);
+      this.doctors = [{ id: undefined, doctorName: '所有医生' }].concat(res.data || []);
     });
     this.departServ.getAllDepartMents().success(res => {
-      this.departs = [{id: undefined , departName: '所有科室'}].concat(res.data || []);
+      this.departs = [{ id: undefined, departName: '所有科室' }].concat(res.data || []);
     });
     this.loadData();
   }
@@ -48,9 +52,11 @@ export class CurrentAppointmentComponent implements OnInit {
 
   handleSubmit(appointSet: AppointSetVo) {
     this.appointServ.changeAppointStatus(appointSet.id, 3).success(() => {
-      this.messageServ.add({severity: 'success', summary: '确认成功！'});
+      this.subjectService.pubscript(SUBJECT.GLOBAL_PROMPT, '确认成功');
+      // this.messageServ.add({severity: 'success', summary: '确认成功！'});
     }).error(() => {
-      this.messageServ.add({severity: 'error', summary: '确认失败！'});
+      this.subjectService.pubscript(SUBJECT.GLOBAL_PROMPT, '确认失败');
+      // this.messageServ.add({severity: 'error', summary: '确认失败！'});
     });
   }
 

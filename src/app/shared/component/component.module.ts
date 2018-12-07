@@ -32,6 +32,7 @@ import { MultOptionsComponent } from './mult-options/mult-options.component';
 import { MultOptionComponent } from './mult-option/mult-option.component';
 import { SearchInputComponent } from './search-input/search-input.component';
 import { DialogComponent } from './dialog/dialog.component';
+import { NoDataComponent } from './no-data/no-data.component';
 
 // const SWIPER_CONFIG: SwiperConfigInterface = {
 //   direction: 'horizontal',
@@ -77,7 +78,8 @@ import { DialogComponent } from './dialog/dialog.component';
         MultOptionsComponent,
         MultOptionComponent,
         SearchInputComponent,
-        DialogComponent
+        DialogComponent,
+        NoDataComponent
     ],
     exports: [
         FormValidModule,
@@ -104,7 +106,8 @@ import { DialogComponent } from './dialog/dialog.component';
         ChecksBoxComponent,
         MultOptionsComponent,
         SearchInputComponent,
-        DialogComponent
+        DialogComponent,
+        NoDataComponent
     ]
 })
 export class ComponentModule { }
