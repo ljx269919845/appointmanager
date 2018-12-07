@@ -1,0 +1,23 @@
+.box {
+    width: 1440px;
+}
+
+.new {
+    padding: 20px;
+}
+
+.new button {
+    cursor: pointer;
+}
+
+.item-box {
+    display: flex;
+    flex-direction: column;
+}
+
+app-appoint-item {
+    /* width: 33.3333%; */
+    width: 480px;
+    display: flex;
+    flex-direction: column wrap;
+}

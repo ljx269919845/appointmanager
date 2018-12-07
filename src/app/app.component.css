@@ -1,6 +1,6 @@
 :host ::ng-deep .error p{ width: auto; padding-left: 10px;}
 :host ::ng-deep .error {position: absolute; margin-top: 8px;}
-:host ::ng-deep .container{padding: 0 30px;}
+:host ::ng-deep .container{padding: 0 20px 40px;}
 
 .container-bd{
   height: 100%;

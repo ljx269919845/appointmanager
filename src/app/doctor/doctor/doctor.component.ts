@@ -66,16 +66,16 @@ export class DoctorComponent implements OnInit {
 
   handleActiveDoctor(doctor: Doctor) {
     this.doctorServ.changeDoctorStatus(doctor.id, 1).success(() => {
-      // this.subServ.pubscript(SUBJECT.GLOBAL_PROMPT, '激活成功！');
-      this.messageServ.add({severity: 'success', summary: '出诊成功！'});
+      this.subServ.pubscript(SUBJECT.GLOBAL_PROMPT, '出诊成功');
+      // this.messageServ.add({severity: 'success', summary: '出诊成功！'});
       this.loadDoctors();
     });
   }
 
   handleFrezeeDoctor(doctor: Doctor) {
     this.doctorServ.changeDoctorStatus(doctor.id, 0).success(() => {
-      // this.subServ.pubscript(SUBJECT.GLOBAL_PROMPT, '冻结成功！');
-      this.messageServ.add({severity: 'success', summary: '休息成功！'});
+      this.subServ.pubscript(SUBJECT.GLOBAL_PROMPT, '休息成功');
+      // this.messageServ.add({severity: 'success', summary: '休息成功！'});
       this.loadDoctors();
     });
   }
@@ -88,8 +88,8 @@ export class DoctorComponent implements OnInit {
   handleDoctorCreate(doctor: Doctor) {
     this.doctorServ.createDoctor(doctor).success(() => {
       this.loadDoctors();
-      // this.subServ.pubscript(SUBJECT.GLOBAL_PROMPT, '添加成功！');
-      this.messageServ.add({severity: 'success', summary: '添加成功！'});
+      this.subServ.pubscript(SUBJECT.GLOBAL_PROMPT, '添加成功');
+      // this.messageServ.add({severity: 'success', summary: '添加成功！'});
     }).after(() => {
       this.handleCancel();
     });
@@ -102,8 +102,8 @@ export class DoctorComponent implements OnInit {
     }
     this.doctorServ.updateDoctor(doctor).success(() => {
       this.loadDoctors();
-      // this.subServ.pubscript(SUBJECT.GLOBAL_PROMPT, '修改成功！');
-      this.messageServ.add({severity: 'success', summary: '修改成功！'});
+      this.subServ.pubscript(SUBJECT.GLOBAL_PROMPT, '修改成功');
+      // this.messageServ.add({severity: 'success', summary: '修改成功！'});
     }).after(() => {
       this.handleCancel();
     });

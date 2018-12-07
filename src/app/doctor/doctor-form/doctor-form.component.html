@@ -1,83 +1,76 @@
-<p-dialog header="医生" [visible]="true" [width]="800" [closable]="false" [modal]="true">
-  <div class="p-grid doctor" ngForm [isliFormValidMsg]="errMsg">
-    <div class="p-col-12">
-      <div class="p-grid">
-        <div class="p-col-6 first">
-          <dl>
-            <dt>姓名:</dt>
-            <dd>
-              <input type="text" name="doctorName" [(ngModel)]="doctor.doctorName" required>
-              <mpr-form-control-valid controlName="doctorName"></mpr-form-control-valid>
-            </dd>
-          </dl>
-          <dl>
-            <dt>职称:</dt>
-            <dd>
-              <input type="text" name="professional" [(ngModel)]="doctor.professional">
-              <mpr-form-control-valid controlName="professional"></mpr-form-control-valid>
-            </dd>
-          </dl>
-        </div>
-        <div class="p-col-4 doctor-img">
-          <div class="p-grid">
-              <div class="p-col-8 img">
-                  <img src="{{doctor.doctorImg}}">
-                  <input type="hidden" name="doctorImg" [(ngModel)]="doctor.doctorImg">
-                  <mpr-form-control-valid controlName="doctorImg"></mpr-form-control-valid>
-                </div>
-                <div class="p-col-4 select">
-                  <button type="button" pButton>选择图片</button>
-                  <input type=file accept="image/*" (change)="handleFileChange($event)">
-                </div>
-          </div>
-        </div>
+<p-dialog header="医生" [visible]="true" [width]="700" [closable]="false" [modal]="true">
+  <div class="edit-box clearfix" ngForm [isliFormValidMsg]="errMsg">
+    <dl>
+      <dt>姓名：</dt>
+      <dd>
+        <input type="text" name="doctorName" [(ngModel)]="doctor.doctorName" required>
+        <mpr-form-control-valid controlName="doctorName"></mpr-form-control-valid>
+      </dd>
+    </dl>
+
+    <dl>
+      <dt>职称：</dt>
+      <dd>
+        <input type="text" name="professional" [(ngModel)]="doctor.professional">
+        <mpr-form-control-valid controlName="professional"></mpr-form-control-valid>
+      </dd>
+    </dl>
+
+    <div class="file-box">
+      <div class="img">
+        <img src="{{doctor.doctorImg}}">
+        <input type="hidden" name="doctorImg" [(ngModel)]="doctor.doctorImg">
+        <mpr-form-control-valid controlName="doctorImg"></mpr-form-control-valid>
+      </div>
+      <div class="select">
+        <label class="btn-select" for="bookCoverBtn">选择图片</label>
+        <input type="file" id="bookCoverBtn" style="position:absolute;clip:rect(0 0 0 0);"accept="image/*" (change)="handleFileChange($event)">
       </div>
     </div>
-    <div class="p-col-12">
-      <dl>
-        <dt>年龄:</dt>
-        <dd>
-          <input type="number" name="doctorAge" [(ngModel)]="doctor.doctorAge">
-        </dd>
-      </dl>
-      <dl>
-        <dt>性别:</dt>
-        <dd>
-          <div class="input">
-              <p-radioButton name="doctorSex" value="1" label="男" [(ngModel)]="doctor.doctorSex"></p-radioButton>
-              <p-radioButton name="doctorSex" value="0" label="女" [(ngModel)]="doctor.doctorSex"></p-radioButton>
-          </div>
-        </dd>
-      </dl>
+
+    <dl>
+      <dt>年龄：</dt>
+      <dd>
+        <input type="number" name="doctorAge" [(ngModel)]="doctor.doctorAge">
+      </dd>
+    </dl>
+
+    <dl>
+      <dt>性别：</dt>
+      <dd>
+          <p-radioButton name="doctorSex" value="1" label="男" [(ngModel)]="doctor.doctorSex"></p-radioButton>
+          <p-radioButton name="doctorSex" value="0" label="女" [(ngModel)]="doctor.doctorSex"></p-radioButton>
+      </dd>
+    </dl>
+
+    <dl>
+      <dt>手机号：</dt>
+      <dd>
+        <input type="text" name="doctorPhone" [(ngModel)]="doctor.doctorPhone" required>
+        <mpr-form-control-valid controlName="doctorPhone"></mpr-form-control-valid>
+      </dd>
+    </dl>
+
+    <dl>
+      <dt>科室：</dt>
+      <dd>
+        <tl-drop-down name="departId" [(ngModel)]="doctor.departId" [autoWidth]="false" [dataValue]="departMent" 
+        [style]="{'width':'348px','height':'28px','line-height':'28px','border':'1px solid #cecece'}"
+        labelName="departName" valueName="id"></tl-drop-down>
+      </dd>
+    </dl>
+
+    <dl>
+      <dt>简介：</dt>
+      <dd>
+        <textarea name="doctorBref" [(ngModel)]="doctor.doctorBref"></textarea>
+      </dd>
+    </dl>
+
+    <div class="btn-box">
+      <button type="button" pButton label="提交" class="btn btn-blue" (click)="handleSubmit()"></button>
+      <button type="button" pButton label="取消" class="btn btn-border" (click)="handleCancel()"></button>
     </div>
-    <div class="p-col-12">
-      <dl>
-        <dt>手机号:</dt>
-        <dd>
-          <input type="text" name="doctorPhone" [(ngModel)]="doctor.doctorPhone" required>
-          <mpr-form-control-valid controlName="doctorPhone"></mpr-form-control-valid>
-        </dd>
-      </dl>
-      <dl>
-        <dt>科室:</dt>
-        <dd>
-          <tl-drop-down name="departId" [(ngModel)]="doctor.departId" [autoWidth]="false" [dataValue]="departMent" labelName="departName" valueName="id"></tl-drop-down>
-        </dd>
-      </dl>
-    </div>
-    <div class="p-col-12">
-      <dl>
-        <dt style="vertical-align: top">简介:</dt>
-        <dd>
-          <textarea name="doctorBref" [(ngModel)]="doctor.doctorBref"></textarea>
-        </dd>
-      </dl>
-    </div>
-    <div class="p-col-12">
-      <div class="center">
-          <button type="button" pButton label="提交" (click)="handleSubmit()"></button>
-          <button type="button" pButton label="取消" (click)="handleCancel()"></button>
-      </div>
-    </div>
+
   </div>
 </p-dialog>

@@ -18,7 +18,7 @@ export class DepartmentTableComponent implements OnInit {
   constructor() {
     this.dataTableObj = new DataTableObj([
       new DataColumnObj('序号', false, null, 'index'),
-      new DataColumnObj('科室名称', false, 'departName'),
+      new DataColumnObj('科室名称', false, null, 'departName'),
       new DataColumnObj('状态', false, null, 'status'),
       new DataColumnObj('操作', false, null, 'oper')
     ]);

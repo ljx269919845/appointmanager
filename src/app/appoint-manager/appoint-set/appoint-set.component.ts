@@ -8,7 +8,7 @@ import { CommonFuncService } from '../../core/common-func.service';
 import { MessageService } from 'primeng/primeng';
 import { Router } from '@angular/router';
 
-const TIME_FRAME = ['8:00-9:00', '9:00-10:00', '10:00-11:00', '11:00-12:00',
+const TIME_FRAME = ['08:00-09:00', '09:00-10:00', '10:00-11:00', '11:00-12:00',
   '14:00-15:00', '15:00-16:00', '16:00-17:00', '17:00-18:00'];
 
 @Component({

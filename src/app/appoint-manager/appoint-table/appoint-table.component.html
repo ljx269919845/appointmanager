@@ -1,4 +1,4 @@
-<div>
+<div class="appoint">
     <tl-data-table [noDataMsg]="'暂无配置信息'"  [dataTableObj]="dataTableObj">
         <ng-template tl-template="index" let-index="index">
             {{index + 1}}
@@ -15,7 +15,7 @@
               <span class="dname">{{appoint.doctor.doctorName}}</span>
               <span class="dnum">{{appoint.userNum}}</span>
               <span class="dsurplus">{{appoint.surplusNum}}</span>
-              <span class="dstatus">{{appoint.doctor.status == 1? '出诊中': '休息中'}}</span>
+              <span class="dstatus" [class.blue]="appoint.doctor.status == 1">{{appoint.doctor.status == 1? '出诊中': '休息中'}}</span>
             </li>
           </ul>
         </ng-template>

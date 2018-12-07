@@ -1,11 +1,9 @@
 <div class="container">
- <div class="hd-opt">
-   <button pButton type="button" label="新建" (click)="handleCreateClick()"></button>
- </div>
- <app-department-table [dataValue]="departMents" (OnActive)="handleActiveDepartMent($event)"
-  (OnFrezee)="handleFrezeeDepartMent($event)" (OnShowDetail)="handleShowDetailDepartMent($event)"></app-department-table>
- <app-deparment-info *ngIf="showInfo" [departMentModify]="departMent"
-  (OnCancel)="handleCancel()"
-  (OnCreate)="handleDepartMentCreate($event)"
-  (OnUpdate)="handleDepartmentUpdate($event)"></app-deparment-info>
+  <div class="new">
+    <button pButton type="button" label="新建" (click)="handleCreateClick()"></button>
+  </div>
+  <app-department-table [dataValue]="departMents" (OnActive)="handleActiveDepartMent($event)" (OnFrezee)="handleFrezeeDepartMent($event)"
+    (OnShowDetail)="handleShowDetailDepartMent($event)"></app-department-table>
+  <app-deparment-info *ngIf="showInfo" [departMentModify]="departMent" (OnCancel)="handleCancel()" (OnCreate)="handleDepartMentCreate($event)"
+    (OnUpdate)="handleDepartmentUpdate($event)"></app-deparment-info>
 </div>

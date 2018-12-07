@@ -19,7 +19,7 @@ import { CommonFuncService } from '../../core/common-func.service';
     selector: 'tl-drop-down',
     template: `
         <p-dropdown class="tl-drop-down" [disabled]="disabled" [style.color]="disabled?'#BDBDBD':'#000'"
-        [style]="StyleClass" [options]="_dataValue"
+        [style]="style" [options]="_dataValue"
         [(ngModel)]="selectedDropDown" [filter]="filter" [autoWidth]="autoWidth">
             <ng-template let-obj pTemplate="item">
                 <div class="ui-helper-clearfix">
@@ -43,7 +43,7 @@ import { CommonFuncService } from '../../core/common-func.service';
 export class DropDownComponent implements OnInit, OnChanges, ControlValueAccessor {
     @Output() selectedFn = new EventEmitter<any>();
 
-    @Input() StyleClass: string;
+    @Input() style: string;
     @Input() disabled: any;
     @Input() labelName = 'name';
     @Input() valueName = 'id';

@@ -16,7 +16,11 @@ export class DepartmentComponent implements OnInit {
   public showInfo = false;
   public departMents: Array<DepartMent>;
 
-  constructor(private departServ: DepartMentService, private messageServ: MessageService) { }
+  constructor(
+    private departServ: DepartMentService,
+    private messageServ: MessageService,
+    private SubjectServ: SubjectService
+  ) { }
 
   ngOnInit() {
     this.loadDepartMents();
@@ -42,14 +46,16 @@ export class DepartmentComponent implements OnInit {
 
   handleActiveDepartMent(depart: DepartMent) {
     this.departServ.changeDepartMentStatus(depart.id, 1).success(() => {
-      this.messageServ.add({severity: 'success', summary: '激活成功！'});
+      // this.messageServ.add({ severity: 'success', summary: '激活成功！' });
+      this.SubjectServ.pubscript(SUBJECT.GLOBAL_PROMPT, '激活成功');
       this.loadDepartMents();
     });
   }
 
   handleFrezeeDepartMent(depart: DepartMent) {
     this.departServ.changeDepartMentStatus(depart.id, 0).success(() => {
-      this.messageServ.add({severity: 'success', summary: '冻结成功！'});
+      // this.messageServ.add({ severity: 'success', summary: '冻结成功！' });
+      this.SubjectServ.pubscript(SUBJECT.GLOBAL_PROMPT, '冻结成功');
       this.loadDepartMents();
     });
   }
@@ -63,7 +69,8 @@ export class DepartmentComponent implements OnInit {
     this.departServ.createDepartMent(depart).success(() => {
       this.loadDepartMents();
       // this.subServ.pubscript(SUBJECT.GLOBAL_PROMPT, '添加成功！');
-      this.messageServ.add({severity: 'success', summary: '添加成功！'});
+      // this.messageServ.add({ severity: 'success', summary: '添加成功！' });
+      this.SubjectServ.pubscript(SUBJECT.GLOBAL_PROMPT, '添加成功');
     }).after(() => {
       this.handleCancel();
     });
@@ -76,8 +83,8 @@ export class DepartmentComponent implements OnInit {
     }
     this.departServ.updateDepartMent(depart).success(() => {
       this.loadDepartMents();
-      // this.subServ.pubscript(SUBJECT.GLOBAL_PROMPT, '修改成功！');
-      this.messageServ.add({severity: 'success', summary: '修改成功！'});
+      this.SubjectServ.pubscript(SUBJECT.GLOBAL_PROMPT, '修改成功');
+      // this.messageServ.add({ severity: 'success', summary: '修改成功！' });
     }).after(() => {
       this.handleCancel();
     });

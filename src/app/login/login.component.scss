@@ -1,48 +1,147 @@
-.login-form {
-  width: 480px;
-  height: auto;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  dt{
-    width: 80px;
-    text-align: right;
+.login-container {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: url('/assets/images/loginBg.png') no-repeat center;
+  background-size: cover;
+  .login-box {
+      width: 598px;
+      height: 522px;
+      transform: translate(-50%, -66%);
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      h2 {
+          height: 122px;
+          line-height: 122px;
+          text-align: center;
+          font-weight: normal;
+          strong {
+              font-size: 36px;
+              color: #fff;
+              font-weight: normal;
+          }
+          em {
+              font-size: 20px;
+              color: #fff;
+              font-style: normal;
+              vertical-align: super;
+          }
+      }
   }
-  dt,dd{
-    display: inline-block;
-  }
-  dd {
-    margin-left: 10px;
-  }
-  .app-input-box {
-      margin-top: 25px;
-      margin-left: 20px;
-      margin-right: 20px;
-      ::ng-deep {
-          input {
-              width: 275px;
-              height: 28px;
-              &.mprGetFocus{
-                  border:1px solid #5bc0de;
+  .login-form-box {
+      width: 100%;
+      height: 400px;
+      background: #fff;
+      border-radius: 4px;
+      h3 {
+          font-size: 26px;
+          color: #4974b5;
+          width: 100%;
+          height: 100px;
+          line-height: 100px;
+          text-align: center;
+      }
+      .login-form {
+          p {
+              width: 366px;
+              height: 50px;
+              border: 1px solid #dadbe0;
+              margin: 0 auto 19px;
+              box-sizing: border-box;
+              font-size: 0;
+              input[type="text"],
+              input[type="password"] {
+                  width: 317px;
+                  height: 48px;
+                  box-sizing: border-box;
+                  line-height: 48px;
+                  text-align: left;
+                  padding-right: 10px;
+                  color: #333;
+                  float: left;
+                  border: 0 none;
+              }
+              i {
+                  width: 47px;
+                  height: 50px;
+                  display: block;
+                  float: left;
+              }
+              &.user-name {
+                  i {
+                      background: url(/assets/images/userNameBg.png) left 12px center no-repeat;
+                  }
+              }
+              &.pass-word {
+                  i {
+                      background: url(/assets/images/passwordBg.png) left 13px center no-repeat;
+                  }
+              }
+              &.remember{
+                height: 20px;
+                padding: 15px 0;
+                margin: 0 auto;
+                border: 0 none;
               }
           }
-          .error{
-              p{
-                  height: 20px;
-                  line-height: 20px;
-                  width: 100px;
-                  float: none;
+          .btn-group {
+              padding: 36px 0;
+              text-align: center;
+              input {
+                  width: 170px;
+                  height: 40px;
               }
-              position: absolute;
-          }
-          .remeber{
-            margin-left: 94px;
-            button{
-              margin-left: 20px;
-              width: 167px;
-            }
           }
       }
   }
 }
+// .login-form {
+//   width: 480px;
+//   height: auto;
+//   position: fixed;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   dt{
+//     width: 80px;
+//     text-align: right;
+//   }
+//   dt,dd{
+//     display: inline-block;
+//   }
+//   dd {
+//     margin-left: 10px;
+//   }
+//   .app-input-box {
+//       margin-top: 25px;
+//       margin-left: 20px;
+//       margin-right: 20px;
+//       ::ng-deep {
+//           input {
+//               width: 275px;
+//               height: 28px;
+//               &.mprGetFocus{
+//                   border:1px solid #5bc0de;
+//               }
+//           }
+//           .error{
+//               p{
+//                   height: 20px;
+//                   line-height: 20px;
+//                   width: 100px;
+//                   float: none;
+//               }
+//               position: absolute;
+//           }
+//           .remeber{
+//             margin-left: 94px;
+//             button{
+//               margin-left: 20px;
+//               width: 167px;
+//             }
+//           }
+//       }
+//   }
+// }

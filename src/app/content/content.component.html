@@ -1,17 +1,17 @@
 <div class="content">
-    <div class="header">
-        <div class="header-box clearfix">
-          <header>
-            <p>社康中心</p>
-            <nav>
-              <a [routerLink]="['appoint']" routerLinkActive="active">患者预约</a>
-              <a [routerLink]="['user-manager']" routerLinkActive="active">患者管理</a>
-              <a [routerLink]="['appoint-manager']" routerLinkActive="active">医生放号</a>
-              <a [routerLink]="['department']" routerLinkActive="active">科室管理</a>
-              <a [routerLink]="['doctor']" routerLinkActive="active">医生管理</a>
-            </nav>
-          </header>
-        </div>
-      </div>
-  <router-outlet></router-outlet>
+  <div class="header-box clearfix">
+    <header>
+      <h2>社康中心</h2>
+      <nav>
+        <a [routerLink]="['appoint']" routerLinkActive="active">患者预约</a>
+        <a [routerLink]="['user-manager']" routerLinkActive="active">患者管理</a>
+        <a [routerLink]="['appoint-manager']" routerLinkActive="active">医生放号</a>
+        <a [routerLink]="['department']" routerLinkActive="active">科室管理</a>
+        <a [routerLink]="['doctor']" routerLinkActive="active">医生管理</a>
+      </nav>
+    </header>
+  </div>
+  <div class="main">
+    <router-outlet></router-outlet>
+  </div>
 </div>

@@ -1,25 +1,37 @@
-<div>
-  <div class="search p-grid">
-    <div class="p-col-4">
-      <label>关键字:</label>
-      <input type="text" pInputText  placeholder="请输入姓名、手机号" [(ngModel)]="search.searchWord">
-    </div>
-    <div class="p-col-4">
-      <label>预约时间:</label>
-      <tl-drop-down [dataValue]="times" [(ngModel)]="search.timeFrame" valueName="name"></tl-drop-down>
-    </div>
-    <div class="p-col-4">
-      <label>预约医生:</label>
-      <tl-drop-down [dataValue]="doctors" [(ngModel)]="search.doctorId" labelName="doctorName"></tl-drop-down>
-    </div>
-    <div class="p-col-4">
-        <label>预约科室:</label>
-        <tl-drop-down [dataValue]="departs" [(ngModel)]="search.departId" labelName="departName"></tl-drop-down>
-    </div>
-    <div class="p-col-4">
-      <button type="button" pButton label="搜索" (click)="handleSearch()"></button>
+<ng-container>
+  <div class="search clearfix">
+    <dl>
+      <dt>关键字：</dt>
+      <dd>
+        <input type="text" pInputText placeholder="请输入姓名、手机号" [(ngModel)]="search.searchWord">
+      </dd>
+    </dl>
+    <dl>
+      <dt>预约时间：</dt>
+      <dd>
+        <tl-drop-down [dataValue]="times" [(ngModel)]="search.timeFrame" valueName="name"
+        [style]="{'width':'180px','height':'26px','line-height':'26px'}"></tl-drop-down>
+      </dd>
+    </dl>
+    <dl>
+      <dt>预约医生：</dt>
+      <dd>
+        <tl-drop-down [dataValue]="doctors" [(ngModel)]="search.doctorId" labelName="doctorName"
+        [style]="{'width':'180px','height':'26px','line-height':'26px'}"></tl-drop-down>
+      </dd>
+    </dl>
+    <dl>
+      <dt>预约科室：</dt>
+      <dd>
+        <tl-drop-down [dataValue]="departs" [(ngModel)]="search.departId" labelName="departName"
+        [style]="{'width':'180px','height':'26px','line-height':'26px'}"></tl-drop-down>
+      </dd>
+    </dl>
+    <div class="button-box">
+      <button type="button" pButton label="搜索" class="btn btn-blue" (click)="handleSearch()"></button>
     </div>
   </div>
-  <app-appointment-table [dataValue]="appointMents?.appointSetList" [totalCount]="paginateObj.totalRecords"
-    (OnPageChange)="handlePageChange($event)" [day]="1" (OnSubmit)="handleSubmit($event)"></app-appointment-table>
-</div>
+
+  <app-appointment-table [dataValue]="appointMents?.appointSetList" [totalCount]="paginateObj.totalRecords" 
+  (OnPageChange)="handlePageChange($event)"  [day]="1" (OnSubmit)="handleSubmit($event)"></app-appointment-table>
+</ng-container>

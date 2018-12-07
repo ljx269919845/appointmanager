@@ -19,11 +19,13 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css",
-        "../node_modules/primeng/resources/themes/nova-light/theme.css",
-        "../node_modules/primeng/resources/primeng.min.css",
-        "../node_modules/primeicons/primeicons.css",
-        "../node_modules/primeflex/primeflex.css"
+        "assets/css/search.css",
+        "assets/css/radio.scss",
+        "assets/css/plugin-date.css",
+        "assets/css/plugin-drop-down.css",
+        "assets/css/data-table.scss",
+        "assets/css/button.scss",
+        "styles.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

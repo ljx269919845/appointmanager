@@ -1,6 +1,6 @@
 <p-dataTable [value]="dataTableObj.value" [class.dataTable-noValue]="!dataTableObj.value||!dataTableObj.value.length" [sortField]="dataTableObj.sortField"
   [sortOrder]="dataTableObj.sortOrder" [rowGroupMode]="dataTableObj?.rowGroupObj?.mode" [groupField]="dataTableObj?.rowGroupObj?.field"
-  [sortableRowGroup]="dataTableObj?.rowGroupObj?.sortable" [resizableColumns]="true" [selection]="selection" (selectionChange)="selection=$event;selectionChange.emit($event);"
+  [sortableRowGroup]="dataTableObj?.rowGroupObj?.sortable" [selection]="selection" (selectionChange)="selection=$event;selectionChange.emit($event);"
   [rowStyleClass]="lookupRowStyleClass" (onSort)="onSort.emit($event)">
   <p-column *ngIf="dataTableObj.selectionObj" [style]="dataTableObj.selectionObj.style" [styleClass]="dataTableObj.selectionObj.styleClass"
     [selectionMode]="dataTableObj.selectionObj.mode"></p-column>

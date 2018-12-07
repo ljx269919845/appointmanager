@@ -21,12 +21,12 @@ export class DoctorTableComponent implements OnInit {
   constructor() {
     this.dataTableObj = new DataTableObj([
       new DataColumnObj('序号', false, null, 'index'),
-      new DataColumnObj('姓名', false, 'doctorName'),
+      new DataColumnObj('姓名', false, null, 'doctorName'),
       new DataColumnObj('手机号', false, 'doctorPhone'),
       new DataColumnObj('职称', false, 'professional'),
       new DataColumnObj('性别', false, null, 'sex'),
       new DataColumnObj('科室', false, null, 'departId'),
-      new DataColumnObj('', false, null, 'oper')
+      new DataColumnObj(' ', false, null, 'oper')
     ]);
   }
 

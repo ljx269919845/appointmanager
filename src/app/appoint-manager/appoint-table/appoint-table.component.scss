@@ -1,21 +1,51 @@
-.dname{
-  width: 40%;
-  display: inline-block;
+.appoint {
+    ul li {
+        width: 100%;
+        font-size: 0;
+        border: 1px solid #efefef;
+        &:first-child {
+            background: #fbfbfb;
+            border-bottom: 0;
+        }
+        &:nth-child(n+2) {
+            border-top: 0;
+            border-bottom: 0;
+            span.dstatus{
+              color: #fb6a6a;
+            }
+            span.blue{
+              color: #3e97df;
+            }
+        }
+        &:last-child {
+            border-bottom: 1px solid #efefef;
+        }
+        span {
+            display: inline-block;
+            height: 30px;
+            line-height: 30px;
+            color: #666;
+            width: 25%;
+            padding: 0 20px;
+            box-sizing: border-box;
+            &.delete {
+                a {
+                    color: #3e97df;
+                }
+            }
+        }
+    }
+    ::ng-deep {
+        .ui-datatable tbody tr:hover {
+          ul li{
+            &:first-child{
+              background: #fbfbfb;
+            }
+            &:nth-child(n+2) {
+              background: #fff;
+            }
+          } 
+        }
+    }
 }
-.dnum{
-  width: 15%;
-  display: inline-block;
-}
-.dsurplus{
-  width: 15%;
-  display: inline-block;
-}
-.dstatus{
-  width: 15%;
-  display: inline-block;
-}
-
-li{
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
-}
+ 

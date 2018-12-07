@@ -1,7 +1,10 @@
 <div class="item">
-  <h3>{{appointItem?.timeFrame}}   放号总量：{{appointItem?.realyTotal}}</h3>
-  <div class="add" *ngIf="waitSettingDoctors.length">
-    <button pButton label="新增放号策略" (click)="handleCreateClick()"></button>
+  <div class="head">
+    <h4>{{appointItem?.timeFrame}} </h4>
+    <p>放号总量：<a>{{appointItem?.realyTotal}}</a></p>
+    <div class="add" *ngIf="waitSettingDoctors.length">
+      <button pButton label="新增放号策略" (click)="handleCreateClick()"></button>
+    </div>
   </div>
   <div class="body">
     <p class="no-pro" *ngIf="!appointItem || !appointItem.appointSets || !appointItem.appointSets.length">
@@ -14,13 +17,15 @@
           <span class="dnum">放号量</span>
           <span class="dstatus">医生状态</span>
         </li>
-        <li *ngFor="let appoint of appointItem.appointSets; let index=index" >
-            <span class="dname">{{appoint.doctor.doctorName}}</span>
-            <span class="dnum">{{appoint.userNum}}</span>
-            <span class="dstatus">{{appoint.doctor.status == 1 ?'出诊中': '休息中'}}</span>
-            <span class="delete" (click)="handleDeleteItem(index)"><a>删除</a></span>
-          </li>
-        </ul>
+        <li *ngFor="let appoint of appointItem.appointSets; let index=index">
+          <span class="dname">{{appoint.doctor.doctorName}}</span>
+          <span class="dnum">{{appoint.userNum}}</span>
+          <span class="dstatus">{{appoint.doctor.status == 1 ?'出诊中': '休息中'}}</span>
+          <span class="delete" (click)="handleDeleteItem(index)">
+            <a>删除</a>
+          </span>
+        </li>
+      </ul>
     </div>
   </div>
 </div>
@@ -28,28 +33,28 @@
   <div class="doctor" ngForm [isliFormValidMsg]="errMsg">
     <dl>
       <dt>
-        <p-checkbox label="全部医生" value="true" name="selectedAll" [(ngModel)]="setting.selectedAll" (onChange)= "handleSelectAllChange($event)"></p-checkbox>
+        <p-checkbox label="全部医生" value="true" name="selectedAll" [(ngModel)]="setting.selectedAll" (onChange)="handleSelectAllChange($event)"></p-checkbox>
       </dt>
       <dd>
         <ul>
           <li *ngFor="let doctor of waitSettingDoctors">
-              <p-checkbox name="doctors" label="{{doctor.doctorName + '('+ (doctor.status==1? '出诊中)': '休息中)')}}" [value]="doctor.id"
-              [(ngModel)]="setting.doctors" (onChange)= "handleSelectChange($event)"></p-checkbox>
+            <p-checkbox name="doctors" label="{{doctor.doctorName + '('+ (doctor.status==1? '出诊中)': '休息中)')}}" [value]="doctor.id" [(ngModel)]="setting.doctors"
+              (onChange)="handleSelectChange($event)"></p-checkbox>
           </li>
         </ul>
         <mpr-form-control-valid controlName="doctors"></mpr-form-control-valid>
       </dd>
       <dd class="unum">
         <div>
-            <label>每个医生放号量：</label>
-            <input type="number" name="userNum" [(ngModel)]="setting.userNum" required>
+          <label>每个医生放号量：</label>
+          <input type="number" name="userNum" [(ngModel)]="setting.userNum" required>
         </div>
         <mpr-form-control-valid controlName="userNum"></mpr-form-control-valid>
       </dd>
       <dd>
         <div class="submit">
-            <button type="button" pButton label="确定" (click)="handleSubmit()"></button>
-            <button type="button" pButton label="取消" (click)="handleCancel()"></button>
+          <button type="button" pButton label="确定" (click)="handleSubmit()"></button>
+          <button type="button" pButton label="取消" (click)="handleCancel()"></button>
         </div>
       </dd>
     </dl>

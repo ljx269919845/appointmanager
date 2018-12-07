@@ -2,7 +2,7 @@ import { DepartMent } from './department.model';
 import { Doctor } from './doctor.model';
 
 export const TIME_FRAME_DRAOPS = [
-  {name: '8:00-9:00'}, {name: '9:00-10:00'}, {name: '10:00-11:00'}, {name: '11:00-12:00'},
+  {name: '08:00-09:00'}, {name: '09:00-10:00'}, {name: '10:00-11:00'}, {name: '11:00-12:00'},
   {name: '14:00-15:00'}, {name: '15:00-16:00'}, {name: '16:00-17:00'}, {name: '17:00-18:00'}
 ];
 

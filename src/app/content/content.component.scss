@@ -1,60 +1,76 @@
-.content{
-  height: 100%;
-  .header-box{
+.content {
     width: 100%;
-    height: 80px;
-    font-weight: normal;
-    background: #5bc0de;
-    margin: 0 auto;
-    overflow: hidden;
-    header{
-        padding: 0 30px;
-        p {
-            color: #fff;
-            font-size: 24px;
-            float: left;
-            height: 60px;
-            line-height: 60px;
-            padding-top: 14px;
-        }
-        nav{
-            float: left;
-            height: 40px;
-            line-height: 40px;
-            padding-left: 30px;
-            padding-top: 28px;
-            a{
-                font-size: 15px;
+    height: 100%;
+    .main {
+        width: 1440px;
+        margin: 15px auto;
+        background: #fbfbfb;
+        min-height: calc(100% - 110px);
+        display: flex;
+    }
+    .header-box {
+        width: 100%;
+        height: 80px;
+        background: #4974b5; // margin: 0 auto;
+        // overflow: hidden;
+        header {
+            width: 1440px;
+            margin: 0 auto;
+            background: #4974b5; // padding: 0 30px;
+            h2 {
                 color: #fff;
-                padding: 0 15px;
-                display: block;
+                width: 200px;
+                text-align: left;
+                font-size: 24px;
                 float: left;
-                transition: background-color .5s,border-color .5s;
-                font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-                &:hover{
-                    cursor: pointer;
-                    text-decoration: underline;
-                }
-                &.aLink{
-                    &:hover{
-                        cursor: default;
-                        text-decoration: none;
+                height: 80px;
+                line-height: 80px;
+                font-weight: normal;
+            }
+            nav {
+                float: left;
+                height: 80px;
+                line-height: 80px; // padding-left: 30px;
+                // padding-top: 28px;
+                a {
+                    font-size: 15px;
+                    color: #fff;
+                    padding: 0 15px;
+                    display: block;
+                    float: left;
+                    transition: background-color .5s, border-color .5s;
+                    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                    &:hover {
+                        cursor: pointer;
+                        text-decoration: underline;
+                        background: #5f87c4;
+                    }
+                    &.active {
+                        background: #5f87c4;
+                        text-decoration: underline;
+                        &:hover {
+                            background: #5f87c4;
+                        }
+                    }
+                    &.aLink {
+                        &:hover {
+                            cursor: default;
+                            text-decoration: none;
+                        }
                     }
                 }
             }
         }
-      }
-  }
-
-  ::ng-deep{
-    .hd-opt {
-      width: 100%;
-      padding: 15px 0;
-      height: 60px;
-      button {
-        width: 100px;
-        float: right;
-      }
     }
-  }
+    //   ::ng-deep{
+    //     .hd-opt {
+    //       width: 100%;
+    //       padding: 15px 0;
+    //       height: 60px;
+    //       button {
+    //         width: 100px;
+    //         float: right;
+    //       }
+    //     }
+    //   }
 }

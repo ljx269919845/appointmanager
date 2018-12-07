@@ -1,0 +1,67 @@
+/*搜索*/
+
+.search {
+    width: 100%;
+    height: auto;
+    /* padding: 20px 0 12px 0; */
+    padding-top: 8px;
+    padding-bottom: 15px;
+    position: relative;
+    z-index: 10;
+    background: #fbfbfb;
+    /* border-bottom: 1px solid #dbdbdc; */
+    /* border-right: 0; border-top: 0;*/
+    box-sizing: border-box;
+}
+
+.search dl,
+.search dl dt,
+.search dl dd {
+    float: left;
+}
+
+.search dl {
+    width: auto;
+    height: 28px;
+    float: left;
+    padding-top: 6px;
+    padding: 12px 0;
+}
+
+.search dl dt {
+    width: 116px;
+    height: 28px;
+    line-height: 28px;
+    padding-right: 7px;
+    color: #3a3939;
+    float: left;
+    text-align: right;
+}
+
+.search dl dt span {
+    color: #f40;
+}
+
+.search dl dd input {
+    width: 160px;
+    height: 26px;
+    line-height: 26px;
+    padding: 0 10px;
+    border: 1px solid #c7c7c7;
+    float: left;
+    background: #fff;
+    color: #7e7e7e;
+}
+
+.search dl dd input.focus {
+    /* border: 1px solid #e06a2f; */
+    outline: none;
+}
+
+.button-box {
+    width: 100%;
+    float: left;
+    text-align: right;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
