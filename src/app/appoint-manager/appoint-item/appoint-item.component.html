@@ -1,7 +1,9 @@
 <div class="item">
   <div class="head">
     <h4>{{appointItem?.timeFrame}} </h4>
-    <p>放号总量：<a>{{appointItem?.realyTotal}}</a></p>
+    <p>放号总量：
+      <a>{{appointItem?.realyTotal}}</a>
+    </p>
     <div class="add" *ngIf="waitSettingDoctors.length">
       <button pButton label="新增放号策略" (click)="handleCreateClick()"></button>
     </div>
@@ -30,33 +32,27 @@
   </div>
 </div>
 <p-dialog *ngIf="showCreate" header="新增放号策略" [visible]="true" [width]="600" [closable]="false" [modal]="true">
-  <div class="doctor" ngForm [isliFormValidMsg]="errMsg">
-    <dl>
-      <dt>
+  <div class="doctor clearfix" ngForm [isliFormValidMsg]="errMsg">
+    <ul>
+      <li>
         <p-checkbox label="全部医生" value="true" name="selectedAll" [(ngModel)]="setting.selectedAll" (onChange)="handleSelectAllChange($event)"></p-checkbox>
-      </dt>
-      <dd>
-        <ul>
-          <li *ngFor="let doctor of waitSettingDoctors">
-            <p-checkbox name="doctors" label="{{doctor.doctorName + '('+ (doctor.status==1? '出诊中)': '休息中)')}}" [value]="doctor.id" [(ngModel)]="setting.doctors"
-              (onChange)="handleSelectChange($event)"></p-checkbox>
-          </li>
-        </ul>
-        <mpr-form-control-valid controlName="doctors"></mpr-form-control-valid>
-      </dd>
-      <dd class="unum">
-        <div>
-          <label>每个医生放号量：</label>
-          <input type="number" name="userNum" [(ngModel)]="setting.userNum" required>
-        </div>
-        <mpr-form-control-valid controlName="userNum"></mpr-form-control-valid>
-      </dd>
-      <dd>
-        <div class="submit">
-          <button type="button" pButton label="确定" (click)="handleSubmit()"></button>
-          <button type="button" pButton label="取消" (click)="handleCancel()"></button>
-        </div>
-      </dd>
-    </dl>
+      </li>
+      <li *ngFor="let doctor of waitSettingDoctors">
+        <p-checkbox name="doctors" label="{{doctor.doctorName + '('+ (doctor.status==1? '出诊中)': '休息中)')}}" [value]="doctor.id" [(ngModel)]="setting.doctors"
+          (onChange)="handleSelectChange($event)"></p-checkbox>
+      </li>
+    </ul>
+    <mpr-form-control-valid controlName="doctors"></mpr-form-control-valid>
+  </div>
+
+  <div class="unum">
+    <label>每个医生放号量：</label>
+    <input type="number" name="userNum" [(ngModel)]="setting.userNum" required>
+    <mpr-form-control-valid controlName="userNum"></mpr-form-control-valid>
+  </div>
+
+  <div class="btn-box">
+    <button type="button" class="btn btn-blue" pButton label="确定" (click)="handleSubmit()"></button>
+    <button type="button" class="btn btn-border" pButton label="取消" (click)="handleCancel()"></button>
   </div>
 </p-dialog>

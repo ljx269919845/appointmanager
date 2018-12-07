@@ -1,0 +1,11 @@
+<div class="no-data-box" *ngIf="noDataBoxObj?.visible || localLoadingBoxObj?.visible">
+  <div class="no-data" [style.display]="(noDataBoxObj?.visible)?'block':'none'">
+    <p>{{noDataBoxObj?.tips}}</p>
+  </div>
+
+  <div class="local-loading-box" [style.display]="(localLoadingBoxObj?.visible)?'flex':'none'">
+    <div class="local-loading">
+      <p>{{localLoadingBoxObj?.tips}}</p>
+    </div>
+  </div>
+</div>

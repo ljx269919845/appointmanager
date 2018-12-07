@@ -7,6 +7,7 @@ import { Doctor } from '../../model';
 import { CommonFuncService } from '../../core/common-func.service';
 import { MessageService } from 'primeng/primeng';
 import { Router } from '@angular/router';
+import { SubjectService, SUBJECT } from '../../core';
 
 const TIME_FRAME = ['08:00-09:00', '09:00-10:00', '10:00-11:00', '11:00-12:00',
   '14:00-15:00', '15:00-16:00', '16:00-17:00', '17:00-18:00'];
@@ -21,8 +22,13 @@ export class AppointSetComponent implements OnInit {
   public oldAppointItemts: Array<AppointItem> = [];
   public doctors: Array<Doctor>;
 
-  constructor(private appointServ: AppointService, private doctServ: DoctorService,
-    private messageServ: MessageService, private router: Router) {
+  constructor(
+    private appointServ: AppointService,
+    private doctServ: DoctorService,
+    private messageServ: MessageService,
+    private subjectService: SubjectService,
+    private router: Router
+  ) {
     this.appointItems = TIME_FRAME.map(elem => new AppointItem(elem));
   }
 
@@ -44,7 +50,7 @@ export class AppointSetComponent implements OnInit {
 
   handleSaveClick() {
     const waitPromise = [];
-    for (let i = 0;  i < this.appointItems.length; i++) {
+    for (let i = 0; i < this.appointItems.length; i++) {
       const appointItem = this.appointItems[i];
       appointItem.appointSets.forEach((appointSet: AppointSet) => {
         const index = this.oldAppointItemts[i].appointSets.findIndex(elem => {
@@ -70,7 +76,8 @@ export class AppointSetComponent implements OnInit {
     });
 
     Promise.all(waitPromise).then(() => {
-      this.messageServ.add({severity: 'success', summary: '配置成功'});
+      this.subjectService.pubscript(SUBJECT.GLOBAL_PROMPT, '配置成功');
+      // this.messageServ.add({severity: 'success', summary: '配置成功'});
       this.router.navigate(['content', 'appoint-manager']);
     });
   }

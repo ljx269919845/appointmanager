@@ -4,7 +4,7 @@ import { GlobalValidService } from 'mpr-form-valid';
 import { LoginService } from '../service/login.service';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/primeng';
-import { AppState } from '../core';
+import { AppState, SubjectService, SUBJECT } from '../core';
 
 @Component({
   selector: 'app-login',
@@ -24,7 +24,8 @@ export class LoginComponent implements OnInit {
     private loginServ: LoginService,
     private router: Router,
     private messageServ: MessageService,
-    private state: AppState
+    private state: AppState,
+    private subjectService:SubjectService
   ) { }
 
   ngOnInit() {
@@ -50,7 +51,8 @@ export class LoginComponent implements OnInit {
       this.state.set('token', res.data.token);
       this.router.navigate(['content']);
     }).error(() => {
-      this.messageServ.add({ severity: 'error', summary: '登录失败' });
+      this.subjectService.pubscript(SUBJECT.GLOBAL_PROMPT, '登录失败');
+      // this.messageServ.add({ severity: 'error', summary: '登录失败' });
     });
   }
 }
