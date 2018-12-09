@@ -21,7 +21,7 @@ export class HistoryAppointmentComponent implements OnInit {
   public departs: Array<DepartMent>;
   public appointMents: AppointMents;
   public paginateObj = new PagingBoxObj(1, 0, 20);
-  public times = TIME_FRAME_DRAOPS;
+  public times = [{name: '全部'}].concat(TIME_FRAME_DRAOPS);
   constructor(private doctorServ: DoctorService,
     private appointServ: AppointService, private departServ: DepartMentService) { }
 
@@ -36,21 +36,23 @@ export class HistoryAppointmentComponent implements OnInit {
   }
 
   handlePageChange(page) {
-    this.paginateObj.page = page.pageIndex;
+    this.paginateObj.page = page.page;
     this.loadData();
   }
 
   handleSearch() {
+    this.paginateObj = new PagingBoxObj(1, 0, 20);
     this.loadData();
   }
 
   private loadData() {
-    this.appointServ.getAllAppointMents(this.search.searchWord, this.search.timeFrame,
+    this.appointServ.getAllAppointMents(this.search.searchWord, this.search.timeFrame === '全部' ? undefined : this.search.timeFrame,
       this.search.departId, this.search.docotrId,
       (this.search.date && this.search.date.beginDate) || undefined,
       (this.search.date && this.search.date.enDate) || undefined, this.paginateObj.page, this.paginateObj.rows).success(res => {
-      this.appointMents = res.data || {};
-      this.paginateObj.totalRecords = this.appointMents.appointNum || 0;
+      this.appointMents = res.data.appoint || {};
+      this.paginateObj.totalRecords = this.appointMents.count || 0;
+      this.paginateObj = Object.assign(this.paginateObj);
     });
   }
 }

@@ -6,7 +6,7 @@ import { AppointSet } from '../model/appointment.model';
 const HTTP_POST_APPOINTSET_CREATE = '/medical/appoint/setting/add';
 const HTTP_POST_APPOINTSET_UPDATE = '/medical/appoint/setting/{id}/update';
 const HTTP_DELTE_APPOINTSET = '/medical/appoint/setting/{id}/delete';
-const HTTP_POST_APPOINTMENT_STATUS = '/medical/doctor/appoint/{appointId}/{status}';
+const HTTP_POST_APPOINTMENT_STATUS = '/medical/doctor/appoint/{id}/{status}';
 const HTTP_GET_APPOINTMENT = '/medical/appoint/setting/list';
 const HTTP_GET_APPOINTEENTS = '/medical/doctor/appoint/list';
 
@@ -44,6 +44,7 @@ export class AppointService {
 
   public getAllAppointMents(searchWord?: string, timeFrame?: string, departId?: string, doctorId?: string,
     beginDate?: string, endDate?: string, pageIndex?: number, pageSize?: number) {
-    return this.http.get(HTTP_GET_APPOINTEENTS, {}, {searchWord, timeFrame, departId, doctorId, beginDate, endDate, pageIndex, pageSize});
+    return this.http.get(HTTP_GET_APPOINTEENTS, {}, {searchWord, timeFrame: timeFrame || undefined, departId, doctorId, pageIndex, pageSize,
+      beginDate: beginDate ? beginDate + ' 00:00:00' :  undefined, endDate: endDate ? endDate + ' 23:59:59' : undefined});
   }
 }

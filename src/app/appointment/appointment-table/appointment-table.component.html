@@ -24,9 +24,9 @@
               {{rowData?.status | appointStatus}}</p>
          </ng-template>
         <ng-template tl-template="oper" let-rowData>
-          <button *ngIf="day==2" class="blue" pButton label="取消预约" (click)="handleCancelApponit(rowData)"></button>
-          <button *ngIf="day==1" [class.gray]="rowData?.status==0 || rowData?.status==2" [class.red]="rowData?.status==1" 
-          pButton label="确认患者看病" (click)="handleSubmitAppoint(rowData)"></button>
+          <button *ngIf="day==2 && rowData.status==1" class="blue" pButton label="取消预约" (click)="handleCancelApponit(rowData)"></button>
+          <button *ngIf="day==1 && rowData.status==1" [class.gray]="rowData?.status==0 || rowData?.status==2" [class.red]="rowData?.status==1"
+          pButton label="确认" (click)="handleSubmitAppoint(rowData)"></button>
         </ng-template>
     </tl-data-table>
   </div>

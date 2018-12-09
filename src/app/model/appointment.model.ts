@@ -64,7 +64,7 @@ export class AppointSetVo {
 
 export class AppointMents {
   constructor(
-    public appointSetList: Array<AppointSet>,
-    public appointNum: number
+    public appoint: Array<AppointSet>,
+    public count: number
   ) {}
 }

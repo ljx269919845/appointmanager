@@ -16,14 +16,14 @@
     <dl>
       <dt>预约医生：</dt>
       <dd>
-        <tl-drop-down [dataValue]="doctors" [(ngModel)]="search.doctorId" labelName="doctorName"
+        <tl-drop-down [dataValue]="doctors" [(ngModel)]="search.doctorId" labelName="doctorName" valueName="id"
         [style]="{'width':'180px','height':'26px','line-height':'26px'}"></tl-drop-down>
       </dd>
     </dl>
     <dl>
       <dt>预约科室：</dt>
       <dd>
-        <tl-drop-down [dataValue]="departs" [(ngModel)]="search.departId" labelName="departName"
+        <tl-drop-down [dataValue]="departs" [(ngModel)]="search.departId" labelName="departName" valueName="id"
         [style]="{'width':'180px','height':'26px','line-height':'26px'}"></tl-drop-down>
       </dd>
     </dl>
@@ -32,6 +32,6 @@
     </div>
   </div>
 
-  <app-appointment-table [dataValue]="appointMents" [totalCount]="paginateObj.totalRecords"
-  (OnPageChange)="handlePageChange($event)"  [day]="1" (OnSubmit)="handleSubmit($event)"></app-appointment-table>
+  <app-appointment-table [dataValue]="appointMents" [pageObj]="paginateObj"
+  (OnPageChange)="handlePageChange($event)"  [day]="1" (OnSubmit)="handleAppointSubmit($event)"></app-appointment-table>
 </ng-container>

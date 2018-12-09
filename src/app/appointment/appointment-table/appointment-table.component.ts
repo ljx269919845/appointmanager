@@ -9,14 +9,13 @@ import { AppointSetVo } from '../../model/appointment.model';
 })
 export class AppointmentTableComponent implements OnInit, OnChanges {
   @Input() dataValue;
-  @Input() totalCount;
   @Output() OnPageChange = new EventEmitter();
   @Output() OnCancel = new EventEmitter();
   @Output() OnSubmit = new EventEmitter();
   @Input() day;
+  @Input() pageObj: PagingBoxObj;
 
   public dataTableObj: DataTableObj;
-  public pageObj: PagingBoxObj;
   constructor() {
     this.dataTableObj = new DataTableObj([
       new DataColumnObj('序号', false, null, 'index', false, null, {width: '5%'}),
@@ -28,7 +27,6 @@ export class AppointmentTableComponent implements OnInit, OnChanges {
       new DataColumnObj('科室', false, null, 'depart', false, null, {width: '10%'}),
       new DataColumnObj('状态', false, null, 'status', false, null, {width: '10%'})
     ]);
-    this.pageObj = new PagingBoxObj(1, 0, 20);
   }
 
   ngOnInit() {
@@ -41,10 +39,7 @@ export class AppointmentTableComponent implements OnInit, OnChanges {
     if ('day' in changes && this.day && this.day !== 3) {
       this.dataTableObj.columnObjs.push( new DataColumnObj('操作', false, null, 'oper', false, null, {width: '10%'}));
     }
-    if ('totalCount' in changes) {
-      this.pageObj = this.totalCount || 0;
-    }
-    if('dataValue' in changes){
+    if ('dataValue' in changes) {
       this.dataTableObj.value = this.dataValue;
     }
   }

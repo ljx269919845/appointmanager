@@ -22,7 +22,7 @@ export class CurrentAppointmentComponent implements OnInit {
   public departs: Array<DepartMent>;
   public appointMents: AppointMents;
   public paginateObj = new PagingBoxObj(1, 0, 20);
-  public times = TIME_FRAME_DRAOPS;
+  public times = [{name: '全部'}].concat(TIME_FRAME_DRAOPS);
   constructor(
     private doctorServ: DoctorService,
     private appointServ: AppointService,
@@ -42,17 +42,19 @@ export class CurrentAppointmentComponent implements OnInit {
   }
 
   handlePageChange(page) {
-    this.paginateObj.page = page.pageIndex;
+    this.paginateObj.page = page.page;
     this.loadData();
   }
 
   handleSearch() {
+    this.paginateObj = new PagingBoxObj(1, 0, 20);
     this.loadData();
   }
 
-  handleSubmit(appointSet: AppointSetVo) {
+  handleAppointSubmit(appointSet: AppointSetVo) {
     this.appointServ.changeAppointStatus(appointSet.id, 3).success(() => {
       this.subjectService.pubscript(SUBJECT.GLOBAL_PROMPT, '确认成功');
+      this.loadData();
       // this.messageServ.add({severity: 'success', summary: '确认成功！'});
     }).error(() => {
       this.subjectService.pubscript(SUBJECT.GLOBAL_PROMPT, '确认失败');
@@ -65,11 +67,11 @@ export class CurrentAppointmentComponent implements OnInit {
   let TOMORROW_TEXT = `${TOMORROW.getFullYear()}-` + `${TOMORROW.getMonth() > 8 ?
     TOMORROW.getMonth() + 1 : '0' + (TOMORROW.getMonth() + 1)}-`;
   TOMORROW_TEXT += `${TOMORROW.getDate() > 9 ? TOMORROW.getDate() : '0' + TOMORROW.getDate()}`;
-    this.appointServ.getAllAppointMents(this.search.searchWord, this.search.timeFrame,
+    this.appointServ.getAllAppointMents(this.search.searchWord, this.search.timeFrame === '全部' ? undefined : this.search.timeFrame,
       this.search.departId, this.search.docotrId, TOMORROW_TEXT, TOMORROW_TEXT,
       this.paginateObj.page, this.paginateObj.rows).success(res => {
-      this.appointMents = res.data || {};
-      this.paginateObj.totalRecords = this.appointMents.appointNum || 0;
+      this.appointMents = res.data.appoint || [];
+      this.paginateObj.totalRecords = res.data.count || 0;
     });
   }
 }

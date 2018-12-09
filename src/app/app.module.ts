@@ -38,8 +38,12 @@ const routes: Routes = [
         loadChildren: './appoint-manager/appoint-manager.module#AppointManagerModule'
       },
       {
+        path: 'user-manager',
+        loadChildren: './user-manager/user-manager.module#UserManagerModule'
+      },
+      {
         path: '**',
-        redirectTo: 'department'
+        redirectTo: 'appoint'
       }
     ]
   }, {

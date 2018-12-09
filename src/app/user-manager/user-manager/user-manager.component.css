@@ -1,0 +1,20 @@
+.btn {
+  background: #3e97df;
+  color: #fff;
+  font-size: 14px;
+  border: 0;
+  border-radius: 0;
+  width: 150px;
+  height: 32px;
+  line-height: 32px;
+}
+
+.button-box {
+  width: 200px;
+  float: right;
+  text-align: right;
+  padding: 0 20px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin-top: 10px;
+}

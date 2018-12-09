@@ -9,13 +9,12 @@
     <dl>
       <dt>注册时间：</dt>
       <dd>
-        <tl-drop-down [dataValue]="times" [(ngModel)]="search.timeFrame" valueName="name"
-        [style]="{'width':'180px','height':'26px','line-height':'26px'}"></tl-drop-down>
+        <tl-start-end-calendar [(ngModel)]="search.date"></tl-start-end-calendar>
       </dd>
     </dl>
     <div class="button-box">
       <button type="button" pButton label="搜索" class="btn btn-blue" (click)="handleSearch()"></button>
     </div>
   </div>
-  <app-user-table></app-user-table>
+  <app-user-table [dataValue]="users" [totalCount]="userCount" (OnPageChange)="handlePageChange($event)"></app-user-table>
 </div>

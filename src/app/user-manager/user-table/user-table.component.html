@@ -1,8 +1,11 @@
 <div>
-    <tl-data-table [noDataMsg]="'暂无预约信息'"  [dataTableObj]="dataTableObj" (onPage)="handlePageChange($event)">
+    <tl-data-table [noDataMsg]="'暂无预约用户'"  [dataTableObj]="dataTableObj" (onPage)="handlePageChange($event)">
         <ng-template tl-template="index" let-index="index">
             {{index + 1}}
          </ng-template>
+         <ng-template tl-template="sex" let-rowData>
+          {{rowData.doctorSex == 1 ? '男': '女'}}
+       </ng-template>
         <ng-template tl-template="oper" let-rowData>
         </ng-template>
     </tl-data-table>
