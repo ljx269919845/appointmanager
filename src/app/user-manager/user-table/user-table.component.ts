@@ -11,9 +11,8 @@ export class UserTableComponent implements OnInit, OnChanges {
 
   @Output() OnPageChange = new EventEmitter();
   @Input() dataValue: Array<User>;
-  @Input() totalCount = 0;
   public dataTableObj;
-  public pageObj;
+  @Input() pageObj;
   constructor() {
     this.dataTableObj = new DataTableObj([
       new DataColumnObj('序号', false, null, 'index', false, null, {width: '5%'}),
@@ -36,9 +35,6 @@ export class UserTableComponent implements OnInit, OnChanges {
     // Add '${implements OnChanges}' to the class.
     if ('dataValue' in changes) {
       this.dataTableObj.value = this.dataValue;
-    }
-    if ('totalCount' in changes) {
-      this.pageObj.totalRecords = this.totalCount;
     }
   }
 

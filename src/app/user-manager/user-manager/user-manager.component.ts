@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../service/user.service';
+import { PagingBoxObj } from '../../shared';
 
 @Component({
   selector: 'app-user-manager',
@@ -9,7 +10,7 @@ import { UserService } from '../../service/user.service';
 export class UserManagerComponent implements OnInit {
 
   public search = {searchWord: '', date: null};
-  public pageInfo = {pageIndex: 1, pageSize: 20};
+  public pageInfo = new PagingBoxObj(1, 0, 20);
   public users;
   public userCount = 0;
 
@@ -20,23 +21,23 @@ export class UserManagerComponent implements OnInit {
   }
 
   handleSearch() {
-    this.pageInfo.pageIndex = 1;
+    this.pageInfo = new PagingBoxObj(1, 0, 20);
     this.loadData();
   }
 
   handlePageChange(page) {
-    this.pageInfo.pageIndex = page;
+    this.pageInfo.page = page.page;
     this.loadData();
   }
 
   private loadData() {
     this.userServ.getUserList(this.search.searchWord, this.search.date && this.search.date.beginDate,
-      this.search.date && this.search.date.endDate, this.pageInfo.pageIndex, this.pageInfo.pageSize)
+      this.search.date && this.search.date.endDate, this.pageInfo.page, this.pageInfo.rows)
       .success(res => {
-        this.userCount = res.data.count;
+        this.pageInfo.totalRecords = res.data.count;
         this.users = res.data.users || [];
     }).error(() => {
-      this.userCount = 0;
+      this.pageInfo.totalRecords = 0;
       this.users = [];
     });
   }
