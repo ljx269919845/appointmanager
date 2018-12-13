@@ -16,5 +16,5 @@
       <button type="button" pButton label="搜索" class="btn btn-blue" (click)="handleSearch()"></button>
     </div>
   </div>
-  <app-user-table [dataValue]="users" [pageObj]="paginateObj" (OnPageChange)="handlePageChange($event)"></app-user-table>
+  <app-user-table [dataValue]="users" [pageObj]="pageInfo" (OnPageChange)="handlePageChange($event)"></app-user-table>
 </div>

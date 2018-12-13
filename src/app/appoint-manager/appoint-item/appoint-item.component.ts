@@ -52,7 +52,7 @@ export class AppointItemComponent extends FormValueAccess implements OnInit, Con
   handleSelectChange(doctorId) {
     if (!this.setting.doctors.length) {
       this.setting.selectedAll = [];
-    } else {
+    } else if (this.settingForm) {
       this.settingForm.controls['doctors'].setErrors(null, {emitEvent: true});
     }
     if (this.setting.doctors.length === this.waitSettingDoctors.length) {

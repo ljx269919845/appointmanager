@@ -14,7 +14,7 @@ import { DepartMentService } from '../../service/department.service';
 })
 export class HistoryAppointmentComponent implements OnInit {
 
-  public search = {searchWord: '', timeFrame: '', docotrId: undefined, departId: undefined,
+  public search = {searchWord: '', timeFrame: '', doctorId: undefined, departId: undefined,
   date: null};
 
   public doctors: Array<Doctor>;
@@ -47,7 +47,7 @@ export class HistoryAppointmentComponent implements OnInit {
 
   private loadData() {
     this.appointServ.getAllAppointMents(this.search.searchWord, this.search.timeFrame === '全部' ? undefined : this.search.timeFrame,
-      this.search.departId, this.search.docotrId,
+      this.search.departId, this.search.doctorId,
       (this.search.date && this.search.date.beginDate) || undefined,
       (this.search.date && this.search.date.enDate) || undefined, this.paginateObj.page, this.paginateObj.rows).success(res => {
       this.appointMents = res.data.appoint || {};

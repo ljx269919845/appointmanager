@@ -16,7 +16,7 @@ import { SubjectService, SUBJECT } from '../../core';
 })
 export class CurrentAppointmentComponent implements OnInit {
 
-  public search = { searchWord: '', timeFrame: '', docotrId: undefined, departId: undefined };
+  public search = { searchWord: '', timeFrame: '', doctorId: undefined, departId: undefined };
 
   public doctors: Array<Doctor>;
   public departs: Array<DepartMent>;
@@ -68,7 +68,7 @@ export class CurrentAppointmentComponent implements OnInit {
     TOMORROW.getMonth() + 1 : '0' + (TOMORROW.getMonth() + 1)}-`;
   TOMORROW_TEXT += `${TOMORROW.getDate() > 9 ? TOMORROW.getDate() : '0' + TOMORROW.getDate()}`;
     this.appointServ.getAllAppointMents(this.search.searchWord, this.search.timeFrame === '全部' ? undefined : this.search.timeFrame,
-      this.search.departId, this.search.docotrId, TOMORROW_TEXT, TOMORROW_TEXT,
+      this.search.departId, this.search.doctorId, TOMORROW_TEXT, TOMORROW_TEXT,
       this.paginateObj.page, this.paginateObj.rows).success(res => {
       this.appointMents = res.data.appoint || [];
       this.paginateObj.totalRecords = res.data.count || 0;
