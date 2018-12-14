@@ -16,7 +16,7 @@ export class UserTableComponent implements OnInit, OnChanges {
   constructor() {
     this.dataTableObj = new DataTableObj([
       new DataColumnObj('序号', false, null, 'index', false, null, {width: '5%'}),
-      new DataColumnObj('姓名', false, 'username', null, false, null, {width: '15%'}),
+      new DataColumnObj('姓名', false, 'userName', null, false, null, {width: '15%'}),
       new DataColumnObj('手机号', false, 'userPhone', null, false, null, {width: '10%'}),
       new DataColumnObj('生日', false, 'userDay', null, false, null, {width: '10%'}),
       new DataColumnObj('年龄', false,  'userAge', null, false, null, {width: '10%'}),
